@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload assets -->
+  <link rel="preload" href="js/application.js" as="script">
+  <link rel="preload" href="img/logo.png" as="image">
+  <link rel="preload" href="img/clouds.png" as="image">
+  <link rel="preload" href="img/grass.png" as="image">
+  <link rel="preload" href="img/water.png" as="image">
+  <link rel="preload" href="fonts/cairo.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts/icons.woff" as="font" crossorigin="">
+
+  <!-- preload fonts -->
+  <style>
+    /** Fonts **/
+    @font-face
+    {
+      font-display: swap;
+      font-family: 'Cairo';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Cairo'), local('Cairo-Regular'), url('fonts/cairo.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face
+    {
+      font-display: swap;
+      font-family: 'icons';
+      font-weight: normal;
+      font-style: normal;
+      font-display: block;
+      src: url('fonts/icons.woff') format('woff');
+    }
+  </style>
+
+  <!-- -->
+  <link rel="icon" href="img/logo.png">
+
+  <link href="css/materialize.min.css" type="text/css" rel="stylesheet">
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+
+  <!-- Website metadata -->
+  <title>Knuth, Flipstarter</title>
+  <meta property="og:title" content="Flipstarter: Knuth">
+  <meta property="og:description" content="Knuth Flipstarter funding campaign.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://knuth.flipstarter.cash/">
+  <meta property="og:image" content="https://knuth.flipstarter.cash/img/knuth-logo.png">
+  <meta property="og:image:alt" content="Knuth logo image.">
+  <meta property="og:article:section" content="Technology">
+  <meta property="og:article:tag" content="Bitcoin">
+  <meta property="og:article:tag" content="Bitcoin Cash">
+  <meta property="og:article:tag" content="BCH">
+  <meta property="og:article:tag" content="Knuth">
+  <meta property="og:article:tag" content="Cryptocurrencies">
+  <meta property="og:article:tag" content="Fundraising">
+  <meta property="og:article:tag" content="Infrastructure">
+</head>
+<body class="clouds">
+  <div class="grass">
+    <div class="background">
+
+      <!-- Site header -->
+      <header id="header" class="container row center">
+        <h1 class="cols s12 m12 l12">
+          <img src="img/logo.png" alt="Flipstarter logotype">
+          <span>Flipstarter</span>
+        </h1>
+        <p class="col s12 m12 l12" data-string="siteIntro">Funding of Bitcoin Cash infrastructure is important, and infrastructure diversity creates a resilient ecosystem. Flipstarter provides a way for any project to engage with potential funders in a way that encourages accountability for projects and fairness for funders.</p>
+        <ul class="col s10 m10 l10 push-s1 push-m1 push-l1" style="display: flex; justify-content: center; text-align: left;">
+          <li class="col">
+            <a class="valign-wrapper" target="_blank" href="https://read.cash/@flipstarter/introducing-flipstarter-31ce86f3">
+              <i class="icon-info"></i>
+              &nbsp;
+              <span data-string="linkWhatIs">What is Flipstarter?</span>
+            </a>
+          </li>
+          <li class="col">
+            <a class="valign-wrapper" target="_blank" href="https://read.cash/@flipstarter/how-to-support-a-flipstarter-campaign-f27240d9">
+              <i class="icon-info"></i>
+              &nbsp;
+              <span data-string="linkHowTo">How to use Flipstarter?</span>
+            </a>
+          </li>
+          <li class="col">
+            <a class="valign-wrapper" target="_blank" href="https://read.cash/@flipstarter/flipstarter-faq-66c56b03">
+              <i class="icon-info"></i>
+              &nbsp;
+              <span data-string="linkFAQ">Common questions.</span>
+            </a>
+          </li>
+        </ul>
+      </header>
+
+      <!-- Site content -->
+      <main class="container row z-depth-2">
+
+        <!-- Campaign -->
+        <article id="campaign" class="col s12 m12 l8" style="margin-bottom: 0.75rem;">
+          <h1 style="display: none;">Campaign</h1>
+
+          <!-- Campaign overview -->
+          <section id="overview">
+            <h2 style="display: none;">Campaign overview</h2>
+            <div style="float: left;">
+              <span class="valign-wrapper" style="float: left;">
+                <i class="icon-access_time"></i>
+                <span id="timerLabel" data-string="fullfilledLabel">Funded</span>
+                <b id="campaignExpiration">2 months ago</b>
+              </span>
+            </div>
+            <div style="float: right;">
+              <span class="valign-wrapper" style="float: left;">
+                <i class="icon-bookmark_border"></i>
+                <span id="compaignContributionAmount">460.00</span>
+                <i>/</i>
+                <span id="campaignRequestAmount">460.00</span>
+                <b>BCH</b>
+              </span>
+            </div>
+            <div class="progress">
+              <div class="determinate" id="campaignProgressBar" style="width: 100%;"></div>
+              <div class="determinate" id="campaignContributionBar" style="left: 100%; width: 0.16%;"></div>
+            </div>
+          </section>
+
+          <!-- Campaign heading -->
+          <header id="campaignAbstract"><p>Knuth envisions bringing Bitcoin Cash to everyday life. We plan to do so by building a scalable monetary platform that offers one service: decentralized, uncensored electronic cash. We are convinced that the path best suited for that involves simple and lean structures. Knuth stands firmly with that perspective, recognizing that the most powerful catalyst for global adoption is accessibility.</p>
+            <p>We also want to pave the way for newcomers. We want to help a new generation of developers to create amazing solutions, to take cross-border trade to unprecedented levels. </p>
+            <p>In a nutshell, Knuth is a full-node implementation focused on extra performance and flexibility. It is designed for wallets, exchanges, block explorers, and miners. It is characterized by its modular architecture and beautiful code. But Knuth is also a development platform that offers a set of libraries as a foundation for building applications.</p>
+            <p>We think that to be successful, every Bitcoin Cash implementation must go through three important steps: following, mining, proposing. And we are totally committed to the task.</p>
+            <p>With a rational budget for this campaign and a deliverable package flexible at contributors' discretion, let there be no confusion! Our commitment to Bitcoin Cash is present and stronger than ever. Knuth plants its flag against any hostile force, internal or external, that even attempts to undermine the initiative of bringing electronic cash to the world.</p>
+            <p>Our policy is transparency, our process momentum, our culture competition. The challenge to take Bitcoin Cash to its maximum potential is now. Get ready!</p>
+          </header>
+
+          <!-- Campaign donation form -->
+          <fieldset id="donateField" class="row fullfilled">
+            <div id="donateStatus" class="col s12 m12 l12" style="text-align: center;" data-string="statusFullfilled">The campaign has been funded.<div id="sharingActions" style="font-size: 1rem; opacity: 0.66;"><a id="shareAction" data-string="shareAction"><i class="icon-share"></i>Share!</a><a id="celebrateAction" data-string="celebrateAction"><i class="icon-nightlife"></i>Celebrate!</a><a id="fullfillmentLink" target="_blank" href="https://blockchair.com/bitcoin-cash/transaction/16af20b9699b42d83a1b4ddd9c796164aa69257a27f32a80e026f88802fee23b"><i class="icon-label"></i>16af20b9699b42d83a1b4ddd9c796164aa69257a27f32a80e026f88802fee23b</a></div></div>
+
+            <div id="donateForm" class="col s12 m12 l12 hidden">
+              <div class="input-field col s1 m1 l1" style="padding: 0;">
+                <i style="display: inline-block; width: 3rem; height: 3rem; text-align: center; opacity: 0.50; font-size: 2.25rem; line-height: 3.25rem;" class="icon-attach_money"></i>
+              </div>
+              <div class="input-field col s11 m5 l6" style="padding: 0; text-align: center;">
+                <input type="range" min="0.80" max="100" value="0" step="0.20" class="slider" id="donationSlider" style="height: 3rem; padding: 0; width: calc(100% - 2rem); margin: 0rem;">
+              </div>
+              <div class="input-field col s12 m6 l5" style="padding: 0 0.75rem; margin: 0.75rem 0rem;">
+                <button id="donateButton" class="btn waves-effect waves-light green" style="width: 100%; padding: 0; margin: 0rem;" disabled="">
+                  <span id="donateText" data-string="donateText">Pledge</span>
+                  <span id="donationAmount" data-satoshis="0">0 BCH (0.00 USD)</span>
+                </button>
+              </div>
+            </div>
+
+            <div id="donateSection" class="hidden col s12 m12">
+              <div class="col" style="background-color: white; border-radius: 0.25rem; border: 1px solid rgba(0, 0, 0, 0.31); padding-bottom: 1.5rem; padding-top: 0.75rem;">
+                <div class="col s12 m12 l12" style="margin-top: 0.75rem;">
+                  <div class="row" style="display: flex; flex-direction: column; justify-content: center; height: 10.50rem; padding: 1rem; margin: 0rem; margin-top: 0.5rem; border: 1px solid rgb(169, 169, 169); box-shadow: inset 0rem 0.10rem 0.25rem rgba(0, 0, 0, 0.13);">
+                    <div class="input-field col s12 m12 l12" style="">
+                      <i style="opacity: 0.50; font-size: 2.25rem; line-height: 2.25rem;" class="icon-person_outline prefix"></i>
+                      <input id="contributionName" type="text" maxlength="24">
+                      <label for="contributionName" data-string="usernameLabel">Name (optional)</label>
+                    </div>
+
+                    <div class="input-field col s12 m12 l12" style="">
+                      <i style="opacity: 0.50; font-size: 2.00rem; line-height: 2.50rem;" class="icon-chat_bubble_outline prefix"></i>
+                      <input id="contributionComment" type="text" maxlength="120">
+                      <label for="contributionComment" data-string="commentLabel">Comment (optional)</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m12 l3" style="margin-top: 0.75rem;">
+                  <small style="display: inline-block; width: 100%; text-align: center;" data-string="copyLabel">1. Copy details</small>
+                  <textarea rows="5" id="template" name="template" style="height: 7rem; font-family: monospace; font-size: small; margin: 0; margin-top: 0.5rem; padding: 1rem; background-color: white;">ewAiAG8AdQB0AHAAdQB0AHMAIgA6AFsAewAiAHYAYQBsAHUAZQAiADoANAA2ADAAMAAwADAAMAAwADAAMAAwACwAIgBhAGQAZAByAGUAcwBzACIAOgAiAGIAaQB0AGMAbwBpAG4AYwBhAHMAaAA6AHEAcABoAGQAeAA1AHEAeQByADcAdAB4AHAAMgA3AGoAdABmAHAAdQA4AGsAeAA2AG4AbQAzADMAdQBkAHoAMwBoAHkAdgBkAHcAegA4AGQAbgA4ACIAfQBdACwAIgBkAGEAdABhACIAOgB7ACIAYQBsAGkAYQBzACIAOgAiACIALAAiAGMAbwBtAG0AZQBuAHQAIgA6ACIAIgB9ACwAIgBkAG8AbgBhAHQAaQBvAG4AIgA6AHsAIgBhAG0AbwB1AG4AdAAiADoAMAB9ACwAIgBlAHgAcABpAHIAZQBzACIAOgAxADUAOAA4ADkAOAAyADMAOQA5AH0A</textarea>
+                  <button id="copyTemplateButton" class="btn waves-effect waves-light green" style="width: 100%;" data-string="copyButton">Copy details</button>
+                </div>
+                <div class="col s12 m12 l6" style="margin-top: 0.75rem;">
+                  <small style="display: inline-block; width: 100%; text-align: center;" data-string="instructionsLabel">2. Prepare pledge</small>
+                  <p id="instructions" style="display: flex; justify-content: center; align-items: center; text-align: center; font-size: small; height: 7rem; padding: 1rem; margin-bottom: 7px; margin-top: 0.5rem; border: 1px solid rgb(169, 169, 169);" data-string="instructions">Install the plugin for the Electron-Cash desktop wallet and use the flipstarter tab to prepare your pledge.</p>
+                  <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                    <a id="downloadButton" class="btn" style="display: flex; align-items: center; justify-content: flex-start; background-color: transparent; color: black; box-shadow: none;" href="https://gitlab.com/flipstarter/flipstarter-electron-cash/uploads/a34641f9863164e82a6ab72314a02311/flipstarter-1.2.zip">
+                      <i class="icon-download"></i>
+                      <span style="margin-left: 0.25rem;" data-string="downloadText">Download</span>
+                    </a>
+                    <a id="linkInstructionsButton" class="btn" target="_blank" style="display: flex; align-items: center; justify-content: flex-start; background-color: transparent; color: black; box-shadow: none;" href="https://read.cash/@flipstarter/how-to-support-a-flipstarter-campaign-f27240d9">
+                      <i class="icon-info"></i>
+                      <span style="margin-left: 0.25rem;" data-string="instructionLink">Instructions</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="col s12 m12 l3" style="margin-top: 0.75rem;">
+                  <small style="display: inline-block; width: 100%; text-align: center;" data-string="commitLabel">3. Paste pledge</small>
+                  <textarea rows="5" id="commitment" name="commitment" data-placeholder="PasteHere" style="height: 7rem; font-family: monospace; font-size: small; margin: 0; margin-top: 0.5rem; padding: 1rem; background-color: white;" placeholder="Paste here"></textarea>
+                  <button id="commitTransaction" class="btn waves-effect waves-light green" style="width: 100%;" disabled="disabled" data-string="commitButton">Submit pledge</button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Campaign details. -->
+          <section id="campaignDetails" class="row"><h1 id="contents">Contents</h1>
+            <ol>
+              <li><a href="#1-introduction">Introduction</a></li>
+              <li><a href="#2-customer-segments">Customer Segments</a></li>
+              <li><a href="#3-value-proposition-and-technical-accomplishments">Value Proposition and Technical Accomplishments</a></li>
+              <li><a href="#4-development-plan-and-proposal">Development Plan and Proposal</a></li>
+              <li><a href="#5-deliverables-and-schedule">Deliverables and Schedule</a></li>
+              <li><a href="#6-budget">Budget</a></li>
+              <li><a href="#7-backup-plans">Backup Plans</a></li>
+              <li><a href="#8-policies-processes-and-culture">Policies, Processes, and Culture</a></li>
+              <li><a href="#9-accountability">Accountability</a></li>
+              <li><a href="#10-funding-and-revenue-streams">Funding and Revenue Streams</a></li>
+              <li><a href="#11-team">Team</a></li>
+            </ol>
+            <hr>
+            <h1 id="1-introduction">1. Introduction</h1>
+            <p>Our vision is to bring Bitcoin Cash to everyday life. Our proposition is to do so by building a monetary platform that offers one service and one service only—money, in the form of electronic cash.</p>
+            <p>While analyzing Bitcoin Cash status quo, we cannot avoid looking at it from a business perspective. This means having a good grasp and understanding of the competition of wants that are represented in the arena. Bitcoin Cash is competing with the most powerful monopoly of all time: fiat money. A system with its many edges honed by centuries of experience, reinforced by thousands of nodes—and end points—connected to its network, and empowered by at least 70 years of computing power.</p>
+            <p>How can Bitcoin Cash compete with that?</p>
+            <h1 id="2-customer-segments">2. Customer Segments</h1>
+            <p>Building a monetary system that challenges the current financial apparatus, one that brings economic freedom for everyone, would require quite an effort, and many people to be involved. Not just a few, but a solid mass of people. That is because, to compete with the current monetary system, we need to replace millions of lines of code, thousands of applications, and solutions that are in use today, every day.</p>
+            <p>We must evolve and take naivety out of the equation. Bitcoin Cash is a newcomer in a market that is fully mature. The share Bitcoin Cash wants needs to be conquered, taken—not by force, not by social posting, not by ripping the community apart, but through hard work, with thought applied to action, with infrastructure that works, is scalable and performant. Bitcoin Cash needs more people. We need to attract them.</p>
+            <p>Knuth is convinced that the path of simplicity is best suited for that attraction. Avoiding unnecessary complexity as much as possible is best for Bitcoin Cash. Knuth stands firmly with that perspective, recognizing that accessibility is the best option for every stakeholder in the ecosystem. Delivering a readable and easy-to-understand platform will allow these stakeholders to orient energy and work over aspects more relevant for their solutions and operations.</p>
+            <p>In the same way, we recognize that Bitcoin Cash must improve its efforts on allowing qualified people to come and enter its environments. For some reason, things become difficult for newcomers.</p>
+            <p>With Knuth, we want to pave the way for newcomers. We want to make their experience easy and exciting. We want to help a new generation of software developers create amazing solutions, a new generation of business developers to take crossborders trade to unprecedented levels.</p>
+            <p>Working with an attitude that encourages complexity for the sake of complexity itself, that dismisses newcomers with haughtiness will make us fail, fail as a project, fail as a monetary system and fail as electronic cash.</p>
+            <p>For that reason, Knuth promotes the attraction, training, and retention of developers of different levels and areas. Our value proposition is a platform particularly designed for them, built upon a modular architecture, simple to modify, simple to expand, and simple to learn. In following this path, Knuth does his best to attract software and business developers, and therefore the companies behind them, with the intention of impulsing massive Bitcoin Cash adoption. These people and companies are the key to how we think Bitcoin Cash should move forward. They are the stakeholders bringing the future to the present.</p>
+            <p>And beware, these developers are not just programmers. Bitcoin Cash needs to include people that may not have technical programming skills, but who understand what users need or want, who can analyze user experience, who can understand what companies require to become part of the ecosystem, and those people need to be an integral part of the process.</p>
+            <p>In short, Knuth is designed for a segmented market that includes:</p>
+            <ol>
+              <li>Miners and mining pools with the clear objective of having a high-performance mining node;</li>
+              <li>Exchanges in need of dependable full indexation;</li>
+              <li>Companies and businesses with the intention of building applications upon a modular and reliable platform;</li>
+              <li>Developers who want to take their projects to new levels with a market-ready solution;</li>
+              <li>Newcomers who want to take their first steps in the blockchain world through a direct and easy-to-understand route.</li>
+            </ol>
+            <h1 id="3-value-proposition-and-technical-accomplishments">3. Value Proposition and Technical Accomplishments</h1>
+            <p>As Bitcoin Cash technology evolves, it calls for a variety of disciplines such as cryptography, programming, databasing, networking, marketing, economics and more. There is no way to have people with the sufficient level of expertise in all these domains—maybe in one or two, plus a general understanding of the rest or even less.</p>
+            <p>As opposed to softwares built with a monolithic architecture, modularization as proposed within Knuth helps in the sense of opening doors for a diverse ecosystem, where the code becomes interactive, reusable and reliable, easy to read and easy to debug.</p>
+            <p>Our value proposition summarizes as follows:</p>
+            <blockquote>
+              <p>Knuth is a full-node implementation focused on extra performance and flexibility, which makes it best for wallets, exchanges, block explorers, and miners. It is characterized by its modular architecture and beautiful code. Knuth is also a development platform that offers a set of libraries in several programming languages as a foundation for building applications.</p>
+            </blockquote>
+            <p>Our technical achievements to date are:</p>
+            <h3 id="high-performance">High Performance</h3>
+            <p>As already mentioned, Knuth is, in essence, a high performance implementation of the Bitcoin protocol. It is a full node implementation, but also a development platform. Its core is written in C++. On top of it, several libraries and modules are provided, written in several programming languages.</p>
+            <h3 id="cross-platform">Cross-Platform</h3>
+            <p>Knuth is a cross-platform solution. It can be used in any computer architecture and operating system. It only requires a 64-bit machine. Its code can be compiled and natively used on Linux, Windows, macOS, FreeBSD, and others with no fuzz.</p>
+            <h3 id="build-system">Build system</h3>
+            <p>Our build system is designed with several advantages in mind. In general, these advantages are related to Knuth’s ability to automatically detect processors’ microarchitecture and optimize the binary generated at build time.</p>
+            <p>The first of the advantages is that Knuth automatizes the administration of external dependencies, offered to save time and effort but also to guarantee that only the correct dependencies are installed. This sums up in correctness and security for users.</p>
+            <p>Second, Knuth also automatizes the administration of internal modules. When installing Knuth, our build system will download, or in its defect, compile each of the required modules, and then it will proceed to build the executable. This results in an economy of compilation time.</p>
+            <p>Finally, with performance in mind, Knuth counts with two installation modes:</p>
+            <ul>
+              <li><p>Extra-performance mode: Our build system will download Knuth’s complete code and compile it, taking maximum advantage of the characteristics of the platforms/processors in use. Compilation times can take longer, but the end result is a super-optimized binary, ideal for users in need of extra performance.</p>
+              </li>
+              <li><p>Easy-rider mode: Pre-compiled Knuth node binaries for mainstream operating systems (Linux, macOS and Windows). These binaries are ideal for prospective users. This mode focuses on timing and a ready-to-go solution . These pre-compiled binaries are ready for the following instructions and extensions: <code>64-bits, movbe, mmx, sse, sse2, sse3, ssse3, sse41, sse42, popcnt, lzcnt, avx, avx2, aes, pclmul, fsgsbase, rdrnd, fma3, abm, bmi, bmi2, f16c, xsave, xsaveopt, cx16</code>.</p>
+              </li>
+            </ul>
+            <h3 id="database-modes">Database modes</h3>
+            <p>Designed to offer a high level of specialization for particular use cases, the Knuth node can be initialized under 3 different database modes at installation time:</p>
+            <ul>
+              <li><p>Normal: provides full mempool, full UTXO set, full indexed blocks. This mode is ideal for users wanting to be collaborative with the network, just following the chain, and making blocks/transactions relay.</p>
+              </li>
+              <li><p>Pruned: provides full mempool and full UTXO set, but it only includes the last n blocks (n being configurable by the user). This mode is designed to be ideal for mining operations and pool operators in need of performance and reliability.</p>
+              </li>
+              <li><p>Full-indexed: provides full mempool, full UTXO set, full indexed blocks, full indexed transactions, and full indexed addresses. This mode is ideal for exchanges, block explorers, and for everyone who needs direct access to blockchain encapsulated information and to unleash its full potential efficiently.</p>
+              </li>
+              <li><p>Read-only: an orthogonal mode that can be used in combination with any of the aforementioned. This execution mode provides users with read-only rights on the database. This mode is ideal for scaling capabilities queries as it offers the possibility of several nodes in read-only mode connected to the same database.</p>
+              </li>
+            </ul>
+            <h3 id="json-rpc">JSON-RPC</h3>
+            <p>Knuth supports JSON-RPC protocol, which is a de facto standard on the market.</p>
+            <h3 id="second-layer-protocols">Second layer protocols</h3>
+            <p>Knuth provides internal support for second level protocol, including full indexation for related transactions. In particular, this support was designed for Keoken protocol developed in 2018. Although Keoken ended up not being commercially available, the same concept can be implemented within Knuth for other similar protocols such as Simple Ledger Protocol (SLP).</p>
+            <h3 id="modularization">Modularization</h3>
+            <p>Knuth is built following a completely modular architecture. Furthermore, each module is a library that can be used independently or together with the other libraries, forming what we call “the node.” This, in addition to the usability advantage, adds a neat and readable code organization that follows the single-responsibility principle, and more importantly, any protocol change can be introduced in Knuth much faster and more efficiently than in any other implementation.</p>
+            <p><img alt="ModularArchitecture" src="https://kth.cash/images/knuth-architecture.png" class="img-fluid"></p>
+            <p>The main modules are:</p>
+            <ul>
+              <li><p><strong>Secp256k1</strong>: Optimized C library for ECDSA signatures and private/public key operations on curve secp256k1.</p>
+              </li>
+              <li><p><strong>Infrastructure</strong>: Domain-driven-design infrastructure layer. It acts as a supporting library for all the other modules. It is in charge of logging, unicode support, encoding formats, big integers support, cryptographic algorithms, and more.</p>
+              </li>
+              <li><p><strong>Domain</strong>: Domain-driven-design domain layer. It contains information about the Bitcoin domain. It is the heart of the business software. The state of business objects is held here.</p>
+              </li>
+              <li><p><strong>Consensus</strong>: It includes source code considered to be Bitcoin Cash script consensus-critical.</p>
+              </li>
+              <li><p><strong>Database</strong>: A high-performance blockchain database based on LMDB. This is ideal for a high-performance blockchain server as reads are significantly more frequent than writes, and yet writes must proceed without delay. The Blockchain module uses the database as its blockchain store.</p>
+              </li>
+              <li><p><strong>Blockchain</strong>: It defines an API to access blockchain domain objects.</p>
+              </li>
+              <li><p><strong>Network</strong>: It is a partial implementation of the Bitcoin P2P network protocol. Excluded are all protocols that require access to the blockchain. Node module extends the P2P networking capability and incorporates Blockchain in order to implement the full node.</p>
+              </li>
+              <li><p><strong>Node</strong>: Bitcoin Cash full node as a C++ library. It is the front door for accessing Blockchain and Network APIs.</p>
+              </li>
+              <li><p><strong>Exe</strong>: Bitcoin Cash full node executable.</p>
+              </li>
+              <li><p><strong>Programming language APIs</strong>: In addition to providing a full node as an executable program, a node is also offered as a library. This is designed so that any user can build applications using the libraries in the supported languages. The created application becomes a node since Knuth's libraries operate in the same memory space as the node. This allows efficient access to domain objects (such as blocks and transactions) without going through the networking layers that make access slower. Libraries are offered in the following languages: C, C++, C#, Eiffel, Go, Javascript, Python and Rust. In addition, given the provided tools, users can create their own libraries in the language of their preference.</p>
+              </li>
+              <li><p><strong>RPC</strong>: This module provides support for the JSON-RPC protocol.</p>
+              </li>
+              <li><p><strong>Rest-API (Insight style)</strong>: For those who prefer a Rest-API, Knuth has its own implementation of Bitpay’s Insight API. It is written using our C# API and has every advantage of running Knuth node underneath. As a note, this implementation signals the potential of Knuth’s programming language APIs to create a variety of applications on top of it.</p>
+              </li>
+            </ul>
+            <h3 id="processes-and-industry-standards">Processes and industry standards</h3>
+            <p>Knuth has the best processes and standards available. It is written in C++, a language characterized by its efficiency, specifically in C++17, the latest official C++ standard available. As a note, our policy is to use the latest available standard with at least 3 years of maturity.</p>
+            <p>Knuth uses the best C and C++ libraries on the market, like Abseil, Boost, GMP, ICU, among others.</p>
+            <p>In relation to the toolchain, Knuth uses the most valued ones by the C++ community: GCC, Clang, MSVC, CMake, Conan, clang-tidy, clang-format.</p>
+            <p>Knuth also uses the following continuous integration services, guaranteeing the highest conformity degree within multiple operating systems: Travis-CI, Appveyor, Cirrus-CI. And in the continuous integration scripts, Knuth uses the following tools: clang-tidy, clang-format, sanitizers, and profile guided optimizations.</p>
+            <h3 id="multi-currency">Multi currency</h3>
+            <p>From the early days of Knuth (and his main ancestor, Bitprim) its developers were distinguished by having an inquisitive and curious mind with a characteristic driver in programmatic and protocol experimentation. This is why Knuth, although focused on Bitcoin Cash, also supports Bitcoin (BTC) and Litecoin (LTC).</p>
+            <p>Over time, this proved to be of relevant importance. On one hand, it shows Knuth’s flexibility in terms of how easy it is to add a new coin to our codebase, and particularly, how quickly it can be done. On the other hand, it was discovered that by adapting the code, to support another coin, edge cases were spontaneously created, which in turn helped in fixing unreported potential errors related to the Bitcoin Cash (BCH) code.</p>
+            <p>As a result of this, Knuth now supports all three currencies, which can be interesting for exchanges and multi-currency wallets when using a single node software instead of several.</p>
+            <h1 id="4-development-plan-and-proposal">4. Development Plan and Proposal</h1>
+            <p>Knuth understands that the main objective of Bitcoin Cash is to become electronic money at a global scale. For this reason, we are convinced that every feature and functionality to be added to the code, no matter what it may be, has to work in favor of that objective.</p>
+            <p>Knuth is in line with the idea to avoid any change that has the potential to make Bitcoin Cash more complex; furthermore, any protocol change must be oriented to:</p>
+            <ol>
+              <li>Fix a confirmed security flaw.</li>
+              <li>Help the everyday Bitcoin Cash user experience.</li>
+              <li>Make tasks easier for developers.</li>
+            </ol>
+            <p>In case there is the slightest doubt, that functionality must go through longer maturation and analysis in backlog and exposition to the Bitcoin Cash community for proper feedback. In simple terms, digital money is the primary vision.</p>
+            <p>At Knuth, we think that for a Bitcoin Cash implementation to be successful, it must go through several important steps. First, it needs to run as a full node without mining, proving that the node can perform the Initial Block Download (IBD), catch up to the latest state, and follow the right consensus rules and the right chain, which means the node does not accidentally introduce consensus rules changes that may lead to forking away of the main chain.</p>
+            <p>Second, the implementation needs to be able to create new blocks that are validated by the network by mining.</p>
+            <p>Third, and not least important for implementations, improvements and innovations need to be brought to the protocol, and the community must be convinced to accept these innovations and upgrades, helping the community to grow.</p>
+            <p>In this way, Knuth’s long term plan includes the following proposal:</p>
+            <ol>
+              <li><p><strong>Implementation of Block Template conformance tests for mining</strong></p>
+                <p>One of Knuth's main goals for 2020 is to demonstrate to the community its potential as a mining node. The various tests we have carried out so far are consistent with the idea that Knuth is in a state of enough maturity for this purpose. However, we want to take that consistency and security to the extreme, reducing any possible risk to its minimum expression and being able to demonstrate it reliably to the community.</p>
+                <p>To put that into practice, we believe, is the best way to ensure conformity with the dominant implementations (Core, BCH Node, ABC, BU). To do so, we want to be able to run the extensive test batteries of the respective implementations on Knuth.</p>
+                <p>In order to run these tests, we must proceed with relevant adaptation tasks on the test code itself as well as Knuth's. We are fully confident that this effort will result in minimizing the financial risk of unintended chain splits, alerting other implementations of possible incompatibilities and a solid recognition by the community and our users regarding the correctness of our node.</p>
+                <p>The tasks related to this project are:</p>
+                <ul>
+                  <li><p>Research and analysis of main implementations’—Core, ABC, BU and BCHN—mining tests; extraction of all possible forms of intercommunication between test battery and nodes; enumeration of those interfaces. Estimated time: 80 hours.</p>
+                  </li>
+                  <li><p>Adaptation of Knuth to support RPC commands that are not implemented but are necessary to run the tests. Estimated time: 160 hours.</p>
+                  </li>
+                  <li><p>Adaptation of Knuth to support other inspection variants—contained in the test battery— on the node (i.e.: inspection of log files). Estimated time: 160 hours.</p>
+                  </li>
+                  <li><p>Incorporation of all relevant tests into Knuth's current test suite. Estimated time: 80 hours.</p>
+                  </li>
+                  <li><p>Corroboration and adaptation of the test battery to be run on Knuth. In case of incompatibility, return to the first step. Estimated time: 80 hours.</p>
+                  </li>
+                  <li><p>Creation of a high-performance API to be able to run test batteries replacing JSON-RPC. Note: Running tests takes a significant amount of time, delaying development and maintenance. It also brings a cost in CI services (Continuous Integration.</p>
+                  </li>
+                  <li><p>Developing a more performant API will reduce testing times. Estimated time: 320 hours.</p>
+                  </li>
+                  <li><p>Adaptation of the test battery to work with the new testing API. Estimated time: 160 hours.</p>
+                  </li>
+                </ul>
+              </li>
+              <li><p><strong>Remove the limitation of 25/50 chained transactions</strong></p>
+                <p>We understand that removing this limitation is desired by a good part of the Bitcoin Cash community. So we take it as a priority for our development team. But we also understand that removing this limitation is not simply changing one constant value for another, but improving the algorithm by which new transactions are added to the Mempool.</p>
+                <p>Reference implementations use a quadratic order algorithm. We think we can develop a more efficient approach to the problem. This task is currently 60% advanced. Estimated remaining time: 400 hours.</p>
+              </li>
+              <li><p><strong>High-performance SLP full indexer</strong></p>
+                <p>Single Ledger Protocol (SLP) has gained momentum in the Bitcoin Cash community as a second layer protocol. We believe having an efficient full indexer within the node would be very useful for the community as a whole and particularly for applications built on top of our platform or that use it as a service. Estimated time: 480 hours.</p>
+              </li>
+              <li><p><strong>High-performance mining API</strong></p>
+                <p>Knuth focuses on performance. One of the areas in which performance becomes a differentiating factor is mining. Our analysis indicates that although the JSON-API protocol may be of significant utility for certain processes, it is not so much for mining. This is because it is built on HTTP, a very high-level networking protocol for this type of activity. Furthermore, JSON encoding can be seen as generalistic and inefficient compared to an encoding specifically designed for mining use. Estimated time: 480 hours.</p>
+              </li>
+              <li><p><strong>Implement Xthinner</strong></p>
+                <p>Block propagation is of great importance to the network, in general, but in particular, for miners and pool operators. Xthinner has shown a significant enhancement in block propagation, and its implementation in Knuth would be valuable. Estimated time: 320 hours.</p>
+              </li>
+              <li><p><strong>Implement fast synchronization</strong></p>
+                <p>Having a node ready to be used for mining as quickly as possible is one of our goals.
+                That is why we want to implement UTXO commitments or any other technology that allows rapid node synchronization for use in mining. Estimated time: 480 hours.</p>
+              </li>
+              <li><p><strong>Double-SHA256 algorithm optimization</strong></p>
+                <p>The SHA256 (double-SHA256) algorithm is of utmost relevance in a Bitcoin Cash node. We have been exploring how to substantially improve it by taking advantage of vector instructions present in modern processors. This will significantly enhance block validation and merkle-root calculation. Estimated time: 320 hours.</p>
+              </li>
+              <li><p><strong>Merkle-root algorithm optimization</strong></p>
+                <p>As Bitcoin Cash scale and adoption increase, the ecosystem will see more transactions per block. It is worth mentioning that Merkle-root algorithms are not entirely efficient in memory consumption when the number of transactions rises. We have been exploring how to improve this behavior, also obtaining an improvement in block validation times and block template creation. Estimated time: 240 hours.</p>
+              </li>
+              <li><p><strong>Improve libraries and languages’ APIs</strong></p>
+                <p>Maintenance and continuous improvement of libraries and APIs is a priority. Although this is continuous work, we would like to be able to dedicate at least 160 hours to it in the next 6 months. Estimated time: 160 hours.</p>
+              </li>
+              <li><p><strong>Improve documentation</strong></p>
+                <p>Documentation is a fundamental tool for Knuth's exposure and proper use. Although this is also a continuous job, we would like to be able to dedicate at least 80 hours to it in the next 6 months. Estimated time: 80 hours.</p>
+              </li>
+              <li><p><strong>Research projects</strong></p>
+                <p>In addition to the specifically targeted tasks, we have a series of research projects in backlog that will be beneficial not only for Knuth but for the entire ecosystem. They are large-scale projects that involve excellent communication and interaction with the community and other implementations.</p>
+                <ul>
+                  <li><p><strong>Bitcoin Cash formal specification and automated testing</strong></p>
+                    <p>Although having a Bitcoin Cash specification written in human language is important, since it facilitates a mutual understanding among the developers involved, whether working in node implementation or other infrastructure services, we believe that Bitcoin Cash would greatly benefit from more rigorous specification.</p>
+                    <p>For this reason, Knuth proposes to write a formal specification in a logical programming language designed precisely for automated mathematical verification of software correctness.</p>
+                    <p>The ultimate goal is to demonstrate that a given Bitcoin Cash implementation works as expected, automatically, by running a computer program.</p>
+                  </li>
+                  <li><p><strong>Research on DAA and alternatives</strong></p>
+                    <p>The current difficulty adjustment algorithm (DAA) has been perceived from various perspectives by the Bitcoin Cash ecosystem since its inception, some positive and others negative. At Knuth, we want to participate in the research process to uncover the real effects of this algorithm on mining and pool operations and, if required, propose improvements or even an alternative development. We know this is a project that requires great transparency and community participation.</p>
+                  </li>
+                  <li><p><strong>Research and implement Graphene</strong></p>
+                    <p>Our initial analysis of Graphene shows it as an interesting option as a block propagation mechanism. Nevertheless, it is a technology that requires more research and testing before being implemented. Our proposal to improve block propagation would implement Xthinner first, while doing the required research on Graphene and then, in case of a positive outcome, proceed with its implementation.</p>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+            <p>Note: All estimated times in this long-term plan are based on technical approximations and calculations using resources available to date. If there are any changes, they will be duly posted in a timely manner and with the required justifications through Knuth's official channels—in this way, maintaining transparency with the community.</p>
+            <h1 id="5-deliverables-and-schedule">5. Deliverables and Schedule</h1>
+            <p>All the tasks mentioned above represent an ambitious plan that, while bringing benefits to the Bitcoin Cash ecosystem, we know, is far-reaching.</p>
+            <p>Given the current market conditions, it seems relevant to make use of the Flipstarter proposal in the best possible way. In our case, this translates to presenting a campaign with limited scope, but one that allows us to showcase the value already invested in Knuth as well as its future potential.</p>
+            <p>For this reason, we are presenting a campaign to fund 960 man-hours (approximately 6 months) to be distributed along the 2020 cycle. From this perspective, our deliverables clearly cannot exhaustively include the entire list shown above as a general plan. Although we have our preferences, we would like to allow potential contributors to choose, according to their criteria, how their funding should be used.</p>
+            <p>When making their respective pledges to Knuth project, contributors may add as comments —within Flipstarter platform— the ordinal number of the proposed tasks they would most prefer. In the case of getting funded, Knuth will do everything in its power to accomplish the tasks with the most votes first. If no details are provided, Knuth will assume the presented order.</p>
+            <p>Given this proposed methodology, it is difficult for us at this time to present a list of deliverables under a fixed schedule. But we believe this is an excellent method that provides the community with an exciting space for participation. Our funders will be able to express their opinions concerning what task they would prefer to see first materialized clearly and transparently.</p>
+            <p><img alt="Tasks" src="https://kth.cash/images/knuth-tasks.png" class="img-fluid"></p>
+            <p>In parallel, there are other associated tasks and activities that we do not consider relevant enough to be included in this document, nor were they independently accounted for at the time of making a budget that makes sense. These activities are related to the preparation of the Flipstarter campaign, website update, node bug fixing and maintenance, release management, devops, small equipment, and minor expenses.</p>
+            <h1 id="6-budget">6. Budget</h1>
+            <p>The great challenge of any fundraising campaign to date is the complex socio-economic context in which we find ourselves, where the effects of COVID-19 virus are ravaging society. In parallel to that, projects related to Bitcoin Cash ecosystem also have their challenges in the current status quo.</p>
+            <p>Although these two factors do not demoralize us—because we are certain we are helping to build a better society—it is important to take them into account. This is especially true when it comes to presenting a financial budget like the one we are doing.</p>
+            <p>We are clear about the costs of a project of this sort. We are very clear about the international rate of senior software developers, as well as the costs of doing business and driving an organization forward. But we are also very clear about the situation that Bitcoin Cash is going through, and in Knuth, we do not feel comfortable imposing an extra burden. But it is also true that we are keen to show the potential of our work and our solution, and mainly collaborate with the community.</p>
+            <p>For all these reasons, we have decided to present a limited campaign in terms of deliverables and rational financial resources. The budget that we are requesting for the 960 man-hours of work is USD 100,000 (BCH 460 at the time of this writing).</p>
+            <p>This is our way of collaborating with the ecosystem, of showing our value, of starting small to grow as strong as possible afterward . Give us the opportunity to prove it.</p>
+            <h1 id="7-backup-plans">7. Backup Plans</h1>
+            <p>In the event that our campaign does not obtain the requested funds, we plan to make other means available to receive funds from potential contributors. Those sources will be informed shortly by official channels.</p>
+            <p>Regarding Knuth's technical development, in case of an unsuccessful campaign, our team will enter into a maintenance mode and will do everything in its power to keep the node updated and under consensus rules as it has been doing to date. Any new development/research and the time required to put it into practice will go through detailed analysis in context.</p>
+            <p>Either way, Knuth is an open-source venture and welcomes any voluntary collaboration to put the presented plan into practice. We welcome anyone who wants to collaborate.</p>
+            <p>Apart from all that, Knuth is in the evaluation phase of new revenue streams that do not depend exclusively on fundraising but on delivering specific services to Bitcoin Cash ecosystem. More details on this can be found in the Revenue Streams section.</p>
+            <p>A non-trivial aspect of considering a fundraising campaign is the volatility of Bitcoin Cash in the short term. In the event of our Flipstarter campaign having a successful end, we would like nothing more than to keep raised funds in BCH as a unit of account, and to be able to consume them directly without exchanges involved, but we know this represents some challenges and can compromise negatively obtained funds.</p>
+            <p>A possible solution is to keep 50% of obtained funds in BCH and the remaining 50% in some stable coin such as USDH. Any matter related to this topic will be duly addressed in a timely manner and with adequate feedback from the community.</p>
+            <p>As an important note, it is worth mentioning that under any possible scenario during the next update on May 15, 2020, Knuth will follow the most-proof-of-work chain.</p>
+            <h1 id="8-policies-processes-and-culture">8. Policies, Processes, and Culture</h1>
+            <h3 id="channels">Channels</h3>
+            <p>Knuth is an open-source project that strives to add value to the Bitcoin Cash ecosystem with healthy ambition, but also anchored to reality. For this reason, we want to be close to our users and clients.</p>
+            <p>Soon we will have our website updated and running. We also have our resources on GitHub, which are open to anyone who feels inclined to participate and collaborate. We encourage not only community members to do so, but also newcomers, believing that our strength is in diversity and in sharing knowledge under a code of mutual respect and cooperation.</p>
+            <p>Our website and read.cash account are the intended channels for official communications and periodic reports, whether financial or technical. We also count with Telegram, Slack and email available to the public, if necessary, do not hesitate to drop us a line. If you are interested in running Knuth, building something cool with it or just give it a try, leave us a message and we will do our best to help you.</p>
+            <p>Website: <a href="https://kth.cash/">kth.cash</a>
+              Github: <a href="https://github.com/k-nuth/kth">github.com/k-nuth/kth</a>
+              Email: <a href="mailto:info@kth.cash">info@kth.cash</a>
+              Telegram: <a href="https://t.me/knuth_cash">t.me/knuth_cash</a>
+              Read.cash: <a href="https://read.cash/@kth">read.cash/@kth</a>
+              Slack: <a href="https://k-nuth.slack.com/">k-nuth.slack.com</a>
+              Twitter: <a href="https://twitter.com/KnuthNode">@KnuthNode</a></p>
+              <h3 id="user-relationships">User Relationships</h3>
+              <p>We would like to have a fluid relationship with our users, with other node implementations, and with the community in general, where under the precepts of collaboration and co-creation we can lay the foundations for a lasting professional relationship.</p>
+              <p>We want to be particularly present for the new developers in the ecosystem. We want to grow with them onboard, learn and find solutions together. Knuth was designed with them in mind, and that path will not be abandoned but motivated.</p>
+              <h3 id="key-partnerships">Key Partnerships</h3>
+              <p>Collaboration among node implementations is of fundamental importance for the benefit of the Bitcoin Cash ecosystem. This concept is deeply rooted in Knuth's philosophy. It is also quite clear for us that healthy competition is beneficial and, from every point of view, inspiring as it is an interesting reflection of forces that govern a free market.</p>
+              <p>Based on principles of collaboration and healthy competition, we want to learn from other node implementations and share experiences, whether technological or business strategies. We know this path will result in benefits for the community. To compete, it is necessary to maximize user experience, stay in continual innovation while not sacrificing reliability, understand where we are, and see the way forward.</p>
+              <p>That is our commitment, which is subscribed to by the Bitcoin Cash ethos.</p>
+              <p>Note: Knuth is part of a group of node implementations that practices responsible disclosure of potential security issues.</p>
+              <h3 id="timing-politics-and-interest">Timing, Politics and Interest</h3>
+              <p>The challenge to take Bitcoin Cash to its maximum potential is here, but our understanding signals that we—as an ecosystem—do not have much time to do it. At Knuth, we perceive Bitcoin Cash as a product. As a product, it needs users, and users will come only with an improved user experience. Within Knuth, we are deeply interested in this aspect, and how we can ease the way in that direction.</p>
+              <p>Bitcoin Cash needs at least one hundred times more users in the next couple of years. If we cannot achieve that, we will never see Bitcoin’s true vision realized. And this has nothing to do with the technical. It has to do with business. The fiat financial system already knows Bitcoin Cash. It has a clear picture of Bitcoin Cash objective; we have shown them what we want; we have declared it to the four corners of the planet. And yet, from the strategic point of view, we are failing.</p>
+              <p>Once a strategy has been declared, there is not much time to execute it. There is no time to think and wait. No, you command and operate, because, if not, any potential opponent—fiat financial system—will adapt. By the time the target is attained, it becomes evident that the same opponent is already there, waiting, stronger. This is the game we are in. It is a game we will not win if we continue in this way. It is a game that, whether we like it or not, has politics and interests vested at its very core.</p>
+              <p>Politics because it involves people—economy is social, and its medium is a network. And where there are people there is politics. Interest because it involves money—our product is money. And where there is money, there is interest. Politics and interest are part of the game. It is impossible to remove politics because if we do so, we would need to remove people. Similarly, it is impossible to remove interest because if we do so, we will lose the monetary system we want to build. So we need to finally comprehend that Bitcoin Cash is built around people and money, and involves politics and interests. If the Bitcoin Cash ecosystem does not realize that fast enough, it will never reach its goal.</p>
+              <p>Knuth has a clear direction, attracting more people and money to the Bitcoin Cash ecosystem. If we succeed, we expect more politics and more interest. It is undoubtedly challenging, but it is needed to create the system we want on a global scale.</p>
+              <h1 id="9-accountability">9. Accountability</h1>
+              <p>Knuth understands the significance of transparency toward the community and intends to be fully compliant with that standard. Knuth will publish monthly progress reports detailing relevant aspects of the operation.</p>
+              <p>These reports will be made available through the official channels mentioned above. They will include, among other things, general metrics, progress of tasks, deliverables offered, and financial statements related to the funds provided by the community. Each of these aspects will include its corresponding verification forms, such as commits from Github for technical aspects—software development—and addresses/wallets/transactions for financial aspects.</p>
+              <p>Bitcoin Cash community will have access to this material, and we encourage any interested party to use it as a base for any related concern or question. We want to grow with accountability and transparency.</p>
+              <h1 id="10-funding-and-revenue-streams">10. Funding and Revenue Streams</h1>
+              <p>At Knuth, we have the highest respect for voluntarism and self-established initiatives. We know that they are of great importance in the open-source community. And while we accept help from those who are willing to offer it, we are clear that the road ahead is highly demanding in terms of resources, even more so under the aforementioned conditions. We are in a race against time, and our great opponent is neither more nor less than the fiat financial system.</p>
+              <p>To sustain the race, we need a cash flow that is not negligible at all. At the same time, we have no intentions to become a burden to the ecosystem we intend to help—that would make us parasites, and it is not the path we have planned for Knuth.</p>
+              <p>On the other hand, we want to avoid, at all costs, obscure initiatives that give rise to a bad image for our organization or unleash conspiracy theories regarding how Knuth obtains its funds. Our commitment is to transparency. We intend to maintain an openness policy concerning our business plan and that it be accelerated in line with the corporations in the ecosystem.</p>
+              <p>Our plans can be grouped under two aspects: funding stream and revenue stream.</p>
+              <h3 id="funding-stream">Funding Stream</h3>
+              <p>At first instance, we have public fundraising as a primary mechanism to obtain funds to carry out our operations. Knuth participates in the Flipstarter campaign of April 2020, which we consider a significant step forward in the evolution of fundraising in Bitcoin Cash.</p>
+              <p>We would love to have the resources to integrate Flipstarter technology to proceed with our own campaigns, but for the moment, that goal is beyond our budget.</p>
+              <p>Without detriment to that, Knuth also has a direct form of funding per requirement/feature through its website (kth.cash), where each item includes detailed information and the minimal funds required both to start and finish the task.</p>
+              <p>Also, we are analyzing the option of launching a software consortium under the commitment of being fundamentally decentralized. This consortium will welcome companies, universities, and research institutions that wish to:</p>
+              <ul>
+                <li>Advance the state of the art of node implementations;</li>
+                <li>Contribute to research in Bitcoin Cash technology integration;</li>
+                <li>Support training of students in Bitcoin Cash technology.</li>
+              </ul>
+              <p>Participation in the said consortium would have a membership fee in exchange for benefits such as:</p>
+              <ul>
+                <li>Early access to research outputs through consortium reports and/or software;</li>
+                <li>Collaboration on topics of mutual interest;</li>
+                <li>Participation and voting rights in the consortium committee.</li>
+              </ul>
+              <p>This idea is still under development and analysis. Any relevant update will be communicated in a timely manner through official channels.</p>
+              <h3 id="revenue-stream">Revenue Stream</h3>
+              <p>In the second instance, Knuth, with demanding growth objectives, wants to conquer its space as a commercial organization, in which Bitcoin Cash-related innovation ventures take us to new frontiers while fulfilling the vision of electronic money for the world.</p>
+              <p>We hope our common sense of purpose will bring people together, wanting to be part of the development of quality Bitcoin Cash products and services. This will bring a revenue stream that will be submitted to increase our offer for the benefit of the ecosystem.</p>
+              <p>These commercial plans, which will be notified on time, will not interfere in any way with our open-source philosophy. Our flagship product, Knuth, will continue to be open to the world, always.</p>
+              <p>Our emphasis is on performance, not only on the products and services offered but also on the way we operate. Our socio-political principles and operational methodologies distance us from bureaucratic and slow response organizations. We strive for processes that can be deconstructed into simple units, processes easy to understand, and productive output.</p>
+              <h1 id="11-team">11. Team</h1>
+              <p>While Knuth may seem like a newcomer to the node implementations scene, this is only a superficial impression. Going deeper, the technological lineage of which Knuth is part becomes evident. Knuth is a direct descendant of Bitprim node, which in turn, is a descendant of Libbitcoin, created in 2011, being the second full implementation of the Bitcoin protocol, after the original client. Although there are considerable differences between Knuth and its predecessors, the former attempts to get the most out of its genetic memory—in a manner of speaking—embedded in its code.</p>
+              <p>The team is formed by people with two main backgrounds—software development, and corporate business—in both cases, with vast experience. To date, the team is both lean and functional, with the explicit intention of gaining speed and expedition without compromising robustness.</p>
+              <p>For more information regarding our team, check out our website at <a href="https://kth.cash/team">kth.cash/team</a>.</p>
+              <hr>
+              <h1 id="document-revision">Document revision</h1>
+              <p>Version: 0.8</p>
+              <p>Revision Date: 06 April 2020</p>
+              <h3 id="authors">Authors:</h3>
+              <ul>
+                <li>Leandro Di Marco, <a href="mailto:leandro@kth.cash">leandro@kth.cash</a></li>
+                <li>Fernando Pelliccioni, <a href="mailto:fernando@kth.cash">fernando@kth.cash</a></li>
+              </ul>
+            </section>
+          </article>
+
+          <!-- Campaign sidebar -->
+          <aside class="col s12 m12 l4">
+            <section>
+              <h3 style="float: left;">
+                <span class="valign-wrapper" style="float: left;">
+                  <i class="icon-face"></i>
+                  <b id="campaignRecipientCount">1</b>
+                  <span data-string="recipientsLabel">recipients</span>
+                </span>
+              </h3>
+              <hr>
+              <ul id="recipientList" class="row" style="margin-bottom: 3rem;"><li class="col s6 m6 l12">
+                <a href="https://kth.cash/">
+                  <img src="img/knuth-logo.png" alt="Knuth">
+                  <span>
+                    <b>Knuth</b>
+                    <i>460 BCH</i>
+                  </span>
+                </a>
+              </li></ul>
+            </section>
+
+            <section>
+              <h3 style="float: left;">
+                <span class="valign-wrapper" style="float: left;">
+                  <i class="icon-favorite_border"></i>
+                  <b id="campaignContributorCount">12</b>
+                  <span data-string="contributorsLabel">contributors</span>
+                </span>
+              </h3>
+              <hr>
+              <ul id="contributionList"><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -12.44s; background-position: 0px 1.95rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">47%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Marc De Mesel</b>
+                    <small class="contributionAmount">217.45 BCH</small>
+                  </span>
+                  <q class="contributionComment">Why I Believe in Bitcoin Cash: https://www.youtube.com/watch?v=TY-om1CSPB4</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -0.3s; background-position: 0px 2.45rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">33%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Marc De Mesel</b>
+                    <small class="contributionAmount">151.16 BCH</small>
+                  </span>
+                  <q class="contributionComment">Thank you Knuth for keeping Bitcoin Cash decentralized and adding value</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -11.99s; background-position: 0px 3.3rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">9%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Marc De Mesel</b>
+                    <small class="contributionAmount">39.38 BCH</small>
+                  </span>
+                  <q class="contributionComment">Want to see you succeed</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -11.99s; background-position: 0px 3.37rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">7%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">molecular</b>
+                    <small class="contributionAmount">30.28 BCH</small>
+                  </span>
+                  <q class="contributionComment">great architecture! very promising!</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -10.22s; background-position: 0px 3.48rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">3%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">btcfork</b>
+                    <small class="contributionAmount">15.42 BCH</small>
+                  </span>
+                  <q class="contributionComment">Good ideas, solid professionals, passion for Bitcoin Cash. All the necessary ingredients.</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -5.04s; background-position: 0px 3.59rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Henry Cashlitt</b>
+                    <small class="contributionAmount">1.44 BCH</small>
+                  </span>
+                  <q class="contributionComment">Bitcoin Cash (BCH): 💰⚡️ Upgraded money for the world</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -3.99s; background-position: 0px 3.59rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Shadow Of Harbringer</b>
+                    <small class="contributionAmount">1.34 BCH</small>
+                  </span>
+                  <q class="contributionComment">Let's support The Bitcoin Cash ecosystem!</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -10.87s; background-position: 0px 3.59rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">amora</b>
+                    <small class="contributionAmount">0.81 BCH</small>
+                  </span>
+                  <q class="contributionComment">BCH for the win!</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -12.85s; background-position: 0px 3.59rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">emergent_reasons#100🌵</b>
+                    <small class="contributionAmount">0.78 BCH</small>
+                  </span>
+                  <q class="contributionComment">FYI Large pledges will allow more people to participate by reducing the minimum.</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -5.84s; background-position: 0px 3.59rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Omar</b>
+                    <small class="contributionAmount">0.76 BCH</small>
+                  </span>
+                  <q class="contributionComment">Bitcoin Cash (BCH): best money for the world! Thank you all BCH developers for your hard work.</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -9.71s; background-position: 0px 3.59rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Sur_Clyde_Hoffenfelder</b>
+                    <small class="contributionAmount">0.69 BCH</small>
+                  </span>
+                  <q class="contributionComment" style="display: none;"></q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -10.84s; background-position: 0px 3.6rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Why cryptocurrencies?</b>
+                    <small class="contributionAmount">0.50 BCH</small>
+                  </span>
+                  <q class="contributionComment">https://whycryptocurrencies.com/</q>
+                </span>
+              </li></ul>
+            </section>
+          </aside>
+        </main>
+
+      </div>
+    </div>
+
+    <!-- Site footer -->
+    <footer class="page-footer green">
+      <div class="container">
+        <div class="row">
+          <div class="col l5 s12">
+            <h5 class="white-text" data-string="footerLabel">About us</h5>
+            <p class="grey-text text-lighten-4" data-string="footerText">We are a group of volunteers who think that it is important to establish effective and sustainable methods for voluntary funding. Flipstarter is an example of how to raise funds non-custodially with minimal trust.</p>
+          </div>
+          <div class="col l2 m4 s4 offset-l1">
+            <h5 class="white-text" data-string="socialLabel">Social</h5>
+            <ul>
+              <li>
+                <a class="white-text valign-wrapper" href="https://twitter.com/flipstartercash">
+                  <i class="icon-chat"></i>
+                  &nbsp;
+                  <span data-string="twitter">Twitter</span>
+                </a>
+              </li>
+              <li>
+                <a class="white-text valign-wrapper" href="https://read.cash/@flipstarter">
+                  <i class="icon-info"></i>
+                  &nbsp;
+                  <span data-string="read.cash">Read.cash</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col l2 m4 s4">
+            <h5 class="white-text" data-string="contactLabel">Contact</h5>
+            <ul>
+              <li>
+                <a class="white-text valign-wrapper" href="mailto:info@flipstarter.cash">
+                  <i class="icon-email"></i>
+                  &nbsp;
+                  <span data-string="email">Email</span>
+                </a>
+              </li>
+              <li>
+                <a class="white-text valign-wrapper" href="mailto:security@flipstarter.cash">
+                  <i class="icon-security"></i>
+                  &nbsp;
+                  <span data-string="security">Security</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col l2 m4 s4">
+            <h5 class="white-text" data-string="codeLabel">Code</h5>
+            <ul>
+              <li>
+                <a class="white-text valign-wrapper" href="https://gitlab.com/groups/flipstarter/-/issues">
+                  <i class="icon-report_problem"></i>
+                  &nbsp;
+                  <span data-string="issues">Issues</span>
+                </a>
+              </li>
+              <li>
+                <a class="white-text valign-wrapper" href="https://gitlab.com/flipstarter">
+                  <i class="icon-code"></i>
+                  &nbsp;
+                  <span data-string="source">Source code</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container center" style="opacity: 0.65;">
+          <span data-string="copyright">Website and assets are copyrighted in 2020 by the respective authors, licensed for public use under the</span>
+          <a href="https://gitlab.com/emergent-reasons/funding-traction/blob/master/LICENSE" style="color: inherit; border-bottom: 1px dashed rgba(256, 256, 256, 0.33)" data-string="license">MIT license.</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="languageSelector" class="fixed-action-btn">
+      <b id="currentLanguage" data-string="changeLanguage">
+        <a href="/">🇬🇧</a>
+        <a href="/zh">🇨🇳</a>
+        <a href="/es">🇪🇸</a>
+      </b>
+    </div>
+
+    <!-- -->
+    <template id="recipientTemplate">
+      <li class="col s6 m6 l12">
+        <a>
+          <img>
+          <span>
+            <b></b>
+            <i></i>
+          </span>
+        </a>
+      </li>
+    </template>
+    <template id="contributionTemplate">
+      <li>
+        <div>
+          <div class="contributionWaves"></div>
+          <div class="contributionDisplay"></div>
+          <span class="contributionPercent"></span>
+        </div>
+        <span>
+          <span>
+            <b class="contributionAlias"></b>
+            <small class="contributionAmount"></small>
+          </span>
+          <q class="contributionComment"></q>
+        </span>
+      </li>
+    </template>
+    <template id="emptyContributionMessage">
+      <li style="display: block; text-align: center; color: rgba(0, 0, 0, 0.5); padding: 2rem;">
+        <i data-string="contributorEmpty1">No one has made a pledge yet.</i>
+        <br>
+        <i data-string="contributorEmpty2">You could be the first.</i>
+      </li>
+    </template>
+
+    <!-- Load the javascript as the last step to ensure fastest load time. -->
+    <!-- <script src="js/application.js"></script> -->
+
+    <!-- -->
+    <audio src="snd/applause.mp3" id="applause"></audio>
+
+
+  </body>
+  </html>

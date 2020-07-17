@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="zh"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload assets -->
+  <link rel="preload" href="js/application.js" as="script">
+  <link rel="preload" href="img/logo.png" as="image">
+  <link rel="preload" href="img/clouds.png" as="image">
+  <link rel="preload" href="img/grass.png" as="image">
+  <link rel="preload" href="img/water.png" as="image">
+  <link rel="preload" href="fonts/cairo.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts/icons.woff" as="font" crossorigin="">
+
+  <!-- preload fonts -->
+  <style>
+    /** Fonts **/
+    @font-face
+    {
+      font-display: swap;
+      font-family: 'Cairo';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Cairo'), local('Cairo-Regular'), url('fonts/cairo.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face
+    {
+      font-display: swap;
+      font-family: 'icons';
+      font-weight: normal;
+      font-style: normal;
+      font-display: block;
+      src: url('fonts/icons.woff') format('woff');
+    }
+  </style>
+
+  <!-- -->
+  <link rel="icon" href="img/logo.png">
+
+  <link href="css/materialize.min.css" type="text/css" rel="stylesheet">
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+
+  <!-- Website metadata -->
+  <title>Knuth, Flipstarter</title>
+  <meta property="og:title" content="Flipstarter: Knuth">
+  <meta property="og:description" content="Knuth Flipstarter funding campaign.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://knuth.flipstarter.cash/">
+  <meta property="og:image" content="https://knuth.flipstarter.cash/img/knuth-logo.png">
+  <meta property="og:image:alt" content="Knuth logo image.">
+  <meta property="og:article:section" content="Technology">
+  <meta property="og:article:tag" content="Bitcoin">
+  <meta property="og:article:tag" content="Bitcoin Cash">
+  <meta property="og:article:tag" content="BCH">
+  <meta property="og:article:tag" content="Knuth">
+  <meta property="og:article:tag" content="Cryptocurrencies">
+  <meta property="og:article:tag" content="Fundraising">
+  <meta property="og:article:tag" content="Infrastructure">
+</head>
+<body class="clouds">
+  <div class="grass">
+    <div class="background">
+
+      <!-- Site header -->
+      <header id="header" class="container row center">
+        <h1 class="cols s12 m12 l12">
+          <img src="img/logo.png" alt="Flipstarter logotype">
+          <span>Flipstarter</span>
+        </h1>
+        <p class="col s12 m12 l12" data-string="siteIntro">比特币现金的基础设施融资非常重要，基础设施的多样化能让生态更稳定。Flipstarter提供了一种新的项目融资方式，既能激励项目提高可信度，又能公平地对待捐赠人。</p>
+        <ul class="col s10 m10 l10 push-s1 push-m1 push-l1" style="display: flex; justify-content: center; text-align: left;">
+          <li class="col">
+            <a class="valign-wrapper" target="_blank" href="https://read.cash/@flipstarter/introducing-flipstarter-31ce86f3">
+              <i class="icon-info"></i>
+              &nbsp;
+              <span data-string="linkWhatIs">什么是Flipstarter?</span>
+            </a>
+          </li>
+          <li class="col">
+            <a class="valign-wrapper" target="_blank" href="https://read.cash/@flipstarter/how-to-support-a-flipstarter-campaign-f27240d9">
+              <i class="icon-info"></i>
+              &nbsp;
+              <span data-string="linkHowTo">怎么用Flipstarter?</span>
+            </a>
+          </li>
+          <li class="col">
+            <a class="valign-wrapper" target="_blank" href="https://read.cash/@flipstarter/flipstarter-faq-66c56b03">
+              <i class="icon-info"></i>
+              &nbsp;
+              <span data-string="linkFAQ">常见问题。</span>
+            </a>
+          </li>
+        </ul>
+      </header>
+
+      <!-- Site content -->
+      <main class="container row z-depth-2">
+
+        <!-- Campaign -->
+        <article id="campaign" class="col s12 m12 l8" style="margin-bottom: 0.75rem;">
+          <h1 style="display: none;">Campaign</h1>
+
+          <!-- Campaign overview -->
+          <section id="overview">
+            <h2 style="display: none;">Campaign overview</h2>
+            <div style="float: left;">
+              <span class="valign-wrapper" style="float: left;">
+                <i class="icon-access_time"></i>
+                <span id="timerLabel" data-string="fullfilledLabel">募资</span>
+                <b id="campaignExpiration">2 个月前</b>
+              </span>
+            </div>
+            <div style="float: right;">
+              <span class="valign-wrapper" style="float: left;">
+                <i class="icon-bookmark_border"></i>
+                <span id="compaignContributionAmount">460.00</span>
+                <i>/</i>
+                <span id="campaignRequestAmount">460.00</span>
+                <b>BCH</b>
+              </span>
+            </div>
+            <div class="progress">
+              <div class="determinate" id="campaignProgressBar" style="width: 100%;"></div>
+              <div class="determinate" id="campaignContributionBar" style="left: 100%; width: 0%;"></div>
+            </div>
+          </section>
+
+          <!-- Campaign heading -->
+          <header id="campaignAbstract"><h1 id="摘要">摘要</h1>
+            <p>Knuth的愿景是让比特币现金用于日常生活之中。我们计划打造一个可扩展的货币平台，致力于提供一种服务：去中心化且不受审核的电子现金。要实现这一目标，需要保持简单、高效的结构。Knuth希望为比特币现金网络上的每一个用户提供最好的使用体验。</p>
+            <p>我们也想为后来者铺平道路，帮助新一代的开发者创建解决方案，把跨境交易体验提升到前所未有的高度。</p>
+            <p>简言之，作为服务于钱包、交易所、区块浏览器和矿工的全节点客户端，Knuth致力于提高性能和灵活性。Knuth采用了模块架构，代码流畅。Knuth也是一个开发平台，为创建应用提供了一整套库。</p>
+            <p>我们认为任何能成功的BCH客户端都需要经历以下三个阶段：跟随、挖矿（获取用户和矿工信任）、提出新想法，为网络添加新的技术特征。这也是我们追求的目标。</p>
+            <p>我们这次发起Flipstarter募资活动的预算有限，最终能交付的结果也仰仗捐赠人的自由意愿。我们对BCH的投入超过了以往任何时候。Knuth旗帜鲜明地反对任何破坏BCH发展成为全球电子现金的内外部恶意行为。</p>
+            <p>我们坚持透明，不断前进，同时也欢迎竞争。我们已准备好迎接挑战，把BCH的潜能发挥到极致。</p>
+          </header>
+
+          <!-- Campaign donation form -->
+          <fieldset id="donateField" class="row fullfilled">
+            <div id="donateStatus" class="col s12 m12 l12" style="text-align: center;" data-string="statusFullfilled">本活动已进行募资。</div>
+
+            <div id="donateForm" class="col s12 m12 l12 hidden">
+              <div class="input-field col s1 m1 l1" style="padding: 0;">
+                <i style="display: inline-block; width: 3rem; height: 3rem; text-align: center; opacity: 0.50; font-size: 2.25rem; line-height: 3.25rem;" class="icon-attach_money"></i>
+              </div>
+              <div class="input-field col s11 m5 l6" style="padding: 0; text-align: center;">
+                <input type="range" min="0.80" max="100" value="0" step="0.20" class="slider" id="donationSlider" style="height: 3rem; padding: 0; width: calc(100% - 2rem); margin: 0rem;">
+              </div>
+              <div class="input-field col s12 m6 l5" style="padding: 0 0.75rem; margin: 0.75rem 0rem;">
+                <button id="donateButton" class="btn waves-effect waves-light green" style="width: 100%; padding: 0; margin: 0rem;" disabled="">
+                  <span id="donateText" data-string="donateText">捐款</span>
+                  <span id="donationAmount" data-satoshis="0">0 BCH (0.00 CNY)</span>
+                </button>
+              </div>
+            </div>
+
+            <div id="donateSection" class="hidden col s12 m12">
+              <div class="col" style="background-color: white; border-radius: 0.25rem; border: 1px solid rgba(0, 0, 0, 0.31); padding-bottom: 1.5rem; padding-top: 0.75rem;">
+                <div class="col s12 m12 l12" style="margin-top: 0.75rem;">
+                  <div class="row" style="display: flex; flex-direction: column; justify-content: center; height: 10.50rem; padding: 1rem; margin: 0rem; margin-top: 0.5rem; border: 1px solid rgb(169, 169, 169); box-shadow: inset 0rem 0.10rem 0.25rem rgba(0, 0, 0, 0.13);">
+                    <div class="input-field col s12 m12 l12" style="">
+                      <i style="opacity: 0.50; font-size: 2.25rem; line-height: 2.25rem;" class="icon-person_outline prefix"></i>
+                      <input id="contributionName" type="text" maxlength="24">
+                      <label for="contributionName" data-string="usernameLabel">姓名(非必选项)</label>
+                    </div>
+
+                    <div class="input-field col s12 m12 l12" style="">
+                      <i style="opacity: 0.50; font-size: 2.00rem; line-height: 2.50rem;" class="icon-chat_bubble_outline prefix"></i>
+                      <input id="contributionComment" type="text" maxlength="120">
+                      <label for="contributionComment" data-string="commentLabel">留言 (非必选项)</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m12 l3" style="margin-top: 0.75rem;">
+                  <small style="display: inline-block; width: 100%; text-align: center;" data-string="copyLabel">1. 复制细节</small>
+                  <textarea rows="5" id="template" name="template" style="height: 7rem; font-family: monospace; font-size: small; margin: 0; margin-top: 0.5rem; padding: 1rem; background-color: white;">ewAiAG8AdQB0AHAAdQB0AHMAIgA6AFsAewAiAHYAYQBsAHUAZQAiADoANAA2ADAAMAAwADAAMAAwADAAMAAwACwAIgBhAGQAZAByAGUAcwBzACIAOgAiAGIAaQB0AGMAbwBpAG4AYwBhAHMAaAA6AHEAcABoAGQAeAA1AHEAeQByADcAdAB4AHAAMgA3AGoAdABmAHAAdQA4AGsAeAA2AG4AbQAzADMAdQBkAHoAMwBoAHkAdgBkAHcAegA4AGQAbgA4ACIAfQBdACwAIgBkAGEAdABhACIAOgB7ACIAYQBsAGkAYQBzACIAOgAiACIALAAiAGMAbwBtAG0AZQBuAHQAIgA6ACIAIgB9ACwAIgBkAG8AbgBhAHQAaQBvAG4AIgA6AHsAIgBhAG0AbwB1AG4AdAAiADoAMAB9ACwAIgBlAHgAcABpAHIAZQBzACIAOgAxADUAOAA4ADkAOAAyADMAOQA5AH0A</textarea>
+                  <button id="copyTemplateButton" class="btn waves-effect waves-light green" style="width: 100%;" data-string="copyButton">复制细节</button>
+                </div>
+                <div class="col s12 m12 l6" style="margin-top: 0.75rem;">
+                  <small style="display: inline-block; width: 100%; text-align: center;" data-string="instructionsLabel">2. 准备捐款</small>
+                  <p id="instructions" style="display: flex; justify-content: center; align-items: center; text-align: center; font-size: small; height: 7rem; padding: 1rem; margin-bottom: 7px; margin-top: 0.5rem; border: 1px solid rgb(169, 169, 169);" data-string="instructions">请在Electron-Cash桌面钱包安装我们的插件，然后在钱包中Flipstarter标签准备款项。</p>
+                  <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                    <a id="downloadButton" class="btn" style="display: flex; align-items: center; justify-content: flex-start; background-color: transparent; color: black; box-shadow: none;" href="https://gitlab.com/flipstarter/flipstarter-electron-cash/uploads/a34641f9863164e82a6ab72314a02311/flipstarter-1.2.zip">
+                      <i class="icon-download"></i>
+                      <span style="margin-left: 0.25rem;" data-string="downloadText">下载</span>
+                    </a>
+                    <a id="linkInstructionsButton" class="btn" target="_blank" style="display: flex; align-items: center; justify-content: flex-start; background-color: transparent; color: black; box-shadow: none;" href="https://read.cash/@flipstarter/how-to-support-a-flipstarter-campaign-f27240d9">
+                      <i class="icon-info"></i>
+                      <span style="margin-left: 0.25rem;" data-string="instructionLink">指示</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="col s12 m12 l3" style="margin-top: 0.75rem;">
+                  <small style="display: inline-block; width: 100%; text-align: center;" data-string="commitLabel">3. 粘贴捐款</small>
+                  <textarea rows="5" id="commitment" name="commitment" data-placeholder="PasteHere" style="height: 7rem; font-family: monospace; font-size: small; margin: 0; margin-top: 0.5rem; padding: 1rem; background-color: white;" placeholder="于此粘贴"></textarea>
+                  <button id="commitTransaction" class="btn waves-effect waves-light green" style="width: 100%;" disabled="disabled" data-string="commitButton">提交捐款</button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Campaign details. -->
+          <section id="campaignDetails" class="row"><h1 id="contents">Contents</h1>
+            <ol>
+              <li><a href="#1-%E4%BB%8B%E7%BB%8D">介绍</a></li>
+              <li><a href="#2-%E7%94%A8%E6%88%B7%E8%87%B3%E4%B8%8A">用户至上</a></li>
+              <li><a href="#3-%E4%BB%B7%E5%80%BC%E4%B8%BB%E5%BC%A0%E5%92%8C%E6%8A%80%E6%9C%AF%E6%88%90%E5%B0%B1">价值主张和技术成就</a></li>
+              <li><a href="#4-%E5%BC%80%E5%8F%91%E8%AE%A1%E5%88%92%E5%92%8C%E6%8F%90%E6%A1%88">开发计划和提案</a></li>
+              <li><a href="#5-%E5%8F%AF%E4%BA%A4%E4%BB%98%E6%88%90%E6%9E%9C%E5%92%8C%E6%97%B6%E9%97%B4%E8%A1%A8">可交付成果和时间表</a></li>
+              <li><a href="#6-%E9%A2%84%E7%AE%97">预算</a></li>
+              <li><a href="#7-%E5%A4%87%E7%94%A8%E8%AE%A1%E5%88%92">备用计划</a></li>
+              <li><a href="#8-%E6%94%BF%E7%AD%96%EF%BC%8C%E6%B5%81%E7%A8%8B%E5%92%8C%E6%96%87%E5%8C%96">政策，流程和文化</a></li>
+              <li><a href="#9-%E9%97%AE%E8%B4%A3%E5%88%B6">问责制</a></li>
+              <li><a href="#10-%E8%B5%84%E9%87%91%E5%92%8C%E6%94%B6%E5%85%A5%E6%B5%81">资金和收入流</a></li>
+              <li><a href="#11-%E5%9B%A2%E9%98%9F">团队</a></li>
+            </ol>
+            <h1 id="1-介绍">1. 介绍</h1>
+            <p>我们的愿景是让比特币现金用于日常生活。为此，我们打算建立一个货币平台，仅以电子现金形式提供货币服务。</p>
+            <p>在分析比特币现金的现状时，我们无法避免地要从商业角度看待它。这意味着我们要充分理解该市场中的需求竞争。比特币现金面对的是有史以来最强大的对手：法定货币。法币体系具有诸多优势，有着数百年的历史，连接着数千个节点和端点，具有至少70年的计算能力。</p>
+            <p>比特币现金该如何与之竞争？</p>
+            <h1 id="2-用户至上">2. 用户至上</h1>
+            <p>要建立一种能挑战当前金融货币体系并为每个人带来经济自由的货币系统绝非易事。必须要有大量的群众基础。因为要与当前的货币系统竞争，我们需要替换掉现有的成千上万行的代码，成千上万的应用和用户解决方案。</p>
+            <p>我们必须不断发展。比特币现金在完全成熟的市场中还是新手。比特币现金要取得市场份额，不能依靠武器，不能简单地多发一些社交帖子，不是通过分裂社区，只能通过努力工作，将思想付诸行动，打造有效的基础设施，提高可扩展性和性能。比特币现金需要更多的用户。我们需要想办法吸引他们。</p>
+            <p>Knuth认为越简单，越具吸引力。比特币现金要尽可能避免不必要的复杂性。Knuth认为比特币现金生态需要提供每个用户平等的接入权。一个易读易懂的平台将使这些利益相关者能够发挥一技之长，就解决方案和运营方面开展工作。</p>
+            <p>同样，比特币现金必须保持开放，准许合格人员加入其生态。出于某些原因，目前后来者加入生态存在一些难度。</p>
+            <p>Knuth希望为新来者铺平道路。我们希望为他们提供简单愉悦的使用体验。我们希望帮助新一代软件开发人员创建出色的解决方案，帮助新一代业务开发人员将跨界交易带到前所未有的水平。</p>
+            <p>为了追求复杂而进行复杂性的工作，傲慢地对待新来者将使我们失败。作为项目会失败，我们追求的货币系统以及电子现金目标也不会实现。</p>
+            <p>因此，Knuth针对不同水平和领域的开发者用不同的策略吸引他们，展开培训，保持沟通。我们主张专门为他们设计一个基于模块化体系结构的平台，易于修改，易于扩展和易于学习。在这一理念下，Knuth竭尽全力吸引软件和业务开发人员，吸引他们背后的公司，以期推动比特币现金的大规模采用。我们认为这些人和公司是比特币现金发展方向的关键。他们影响着未来的发展道路。</p>
+            <p>需要注意的是，开发人员不仅仅包括程序员，也包括不懂技术编程，但了解用户需求的人。他们可以分析用户体验，了解如何让公司成为生态系统的一部分。这些人对生态发展也很必要。</p>
+            <p>简而言之，Knuth是针对细分市场而设计的，该细分市场包括：</p>
+            <ol>
+              <li>矿工和矿池。他们希望使用高性能的挖矿节点；</li>
+              <li>交易所。他们需要可靠的完整指数化;</li>
+              <li>公司。他们希望能基于模块化和可靠平台构建应用程序;</li>
+              <li>开发者。他们希望使用现成的解决方案来将其项目推向市场;</li>
+              <li>用户。他们希望通过直接且易于理解的路线迈向区块链世界第一步。</li>
+            </ol>
+            <h1 id="3-价值主张和技术成就">3. 价值主张和技术成就</h1>
+            <p>随着比特币现金技术的发展，它需要各种学科的知识，例如密码学，编程，数据库基础，网络，营销，经济学等等。没有办法让人们在以上这些领域都具有足够的专业知识水平。大部分人可能只熟知一两个领域，而对其余的领域有个基本了解，甚至知之甚少。</p>
+            <p>与采用整体架构构建的软件相反，Knuth提出的模块化架构有助于打造多样化的生态系统。在这种生态系统中，代码变得可交互，可重用且可靠，易于阅读和易于调试。</p>
+            <p>以下是我们的价值主张：</p>
+            <blockquote>
+              <p>Knuth是一个专注于高性能和灵活性的全节点客户端，是钱包，交易所，区块浏览器和矿工的最佳选择。它的特点是模块化的架构和流畅的代码。 Knuth还是一个开发平台，它提供支持多种编程语言的库，这些库是构建应用程序的基础。</p>
+            </blockquote>
+            <p>以下是我们已取得的技术成就：</p>
+            <h3 id="高性能">高性能</h3>
+            <p>如上所述，Knuth本质上是比特币协议的高性能实现。它是一个完整的节点客户端，也是一个开发平台。它的核心是用C++编写的。最重要的是，Knuth提供了几种库和模块，它们以多种编程语言编写。</p>
+            <h3 id="跨平台">跨平台</h3>
+            <p>Knuth是一个跨平台的解决方案。它可以在任何计算机体系结构和操作系统中使用。仅需要一台64位计算机，Knuth的代码可以被编译并流畅使用在Linux，Windows，macOS，FreeBSD以及其他系统中。</p>
+            <h3 id="构建系统">构建系统</h3>
+            <p>我们在设计构建系统时就考虑了几个优点。通常，这些优势能在Knuth自动检测处理器的微体系结构，优化在构建时生成的二进制文件时发挥优势。</p>
+            <p>Knuth的第一个优点是能自动化外部依赖项的管理，既节省时间和精力，又可以确保仅安装正确的依赖项。这样就确保了用户操作的正确性和安全性。</p>
+            <p>其次，Knuth还可以自动执行内部模块的管理。安装Knuth时，我们的构建系统将下载或修复其中的缺陷，编译每个必需的模块，然后继续构建可执行文件。这样可以节省编译时间。</p>
+            <p>最后，考虑到对性能的优化，Knuth设置了两种安装模式：</p>
+            <ul>
+              <li>额外性能模式：我们的构建系统将下载Knuth的完整代码并进行编译，从而充分利用所使用平台/处理器的特性。编译时间可能会更久，但最终结果是超级优化的二进制文件，非常适合需要额外性能的用户。</li>
+              <li>易搭便车模式：适用于主流操作系统（Linux，macOS和Windows）的预编译Knuth节点二进制文件。这些二进制文件非常适合吸引潜在用户。该模式侧重于即时和即用型解决方案。这些预编译的二进制文件可用于以下说明和扩展：<code>64位，movbe，mmx，sse，sse2，sse3，ssse3，sse41，sse42，popcnt，lzcnt，avx，avx2，aes，pclmul，fsgsbase，rdrnd ，fma3，abm，bmi，bmi2，f16c，xsave，xsaveopt，cx16</code>。</li>
+            </ul>
+            <h3 id="数据库模式">数据库模式</h3>
+            <p>Knuth在设计时考虑到为特定用例提供高级专业知识，可在3种不同的数据库模式下初始化Knuth节点：</p>
+            <ul>
+              <li>正常：提供完整的内存池，完整的UTXO集，完整的索引块。对于希望与网络进行协作，紧跟区块链并进行块/事务中继的用户而言，此模式是最理想的选择。</li>
+              <li>修剪：提供完整的内存池和完整的UTXO集，但它仅包括最新的n个块（n可由用户配置）。此模式是需要高性能和可靠性的挖矿运营商和矿池运营商的理想选择。</li>
+              <li>全索引：提供完整的内存池，完整的UTXO集，完整的索引块，完整的索引事务和完整的索引地址。这种模式非常适合交易所，区块浏览器以及需要直接访问区块链封装信息并有效释放其全部潜力的用户。</li>
+              <li>只读：可以与任何前述方式结合使用的正交模式。此执行模式为用户提供了对数据库的只读权限。此模式非常适合扩展功能查询，因为它可以将多个节点以只读模式连接到同一数据库。</li>
+            </ul>
+            <h3 id="json-rpc">JSON-RPC</h3>
+            <p>Knuth支持JSON-RPC协议，这是市场的业界标准。</p>
+            <h3 id="第二层协议">第二层协议</h3>
+            <p>Knuth为二层协议提供内部支持，包括对相关交易的完整索引。值得一提的是，此支持是针对于2018年开发的Keoken协议而设计的。尽管Keoken最终并未实现商业化，但这一概念可以在Knuth中为其他类似协议（例如简单账本协议（SLP））实施。</p>
+            <h3 id="模块化">模块化</h3>
+            <p>Knuth采取了模块化的架构。每个模块都是一个库，可以独立使用，也可以与其他库一起使用，形成所谓的“节点”。除了可用性优势之外，模块化架构还增加了遵循单一职责原则的简洁易读的代码组织。更重要的是，与任何其他客户端相比，任何协议更改都可以更快、更有效地引入Knuth。</p>
+            <p><img alt="ModularArchitecture" src="http://kth.cash/images/knuth-architecture.png" class="img-fluid"></p>
+            <p>主要模块有:</p>
+            <ul>
+              <li><strong>Secp256k1</strong>: 针对ECDSA签名和曲线secp256k1上的私钥/公钥操作的优化C库。</li>
+              <li><strong>基础设施</strong>: 域驱动设计基础架构层。它充当所有其他模块的支持库，负责日志记录，unicode支持，编码格式，大整数支持，密码算法等。</li>
+              <li><strong>域名</strong>: 域驱动设计域层。它包含有关比特币域的信息，是商业软件的核心。商业对象的状态托管在这里。</li>
+              <li><strong>共识</strong>: 包含被认为对共识至关重要的比特币现金脚本的源代码。</li>
+              <li><strong>数据库</strong>: 基于LMDB的高性能区块链数据库。这是高性能区块链服务器的理想选择，因为读取的频率明显高于写入的频率，但是写入必须毫不延迟。区块链模块使用数据库作为其区块链存储。</li>
+              <li><strong>区块链</strong>: 它定义用于访问区块链域对象的API。</li>
+              <li><strong>网络</strong>: 这是比特币P2P网络协议的部分实现。排除了需要访问区块链的所有协议。节点模块扩展了P2P网络功能，并合并了区块链以实现全节点。</li>
+              <li><strong>节点</strong>: 作为C ++库的Bitcoin Cash完整节点。它是访问区块链和网络API的前门。</li>
+              <li><strong>Exe</strong>: 比特币现金全节点可执行文件。</li>
+              <li><strong>编程语言API</strong>: 除了提供完整的节点作为可执行程序外，还提供一个节点作为库。这样做是为了使任何用户都可以用相应语言的库来构建应用程序。由于Knuth的库在与节点相同的内存空间中运行，因此创建的应用程序成为节点。这样就可以高效地访问域对象（例如块和事务），而无需经过会使访问速度变慢的网络层。提供以下语言的库：C，C ++，C＃，Eiffel，Go，Javascript，Python和Rust。此外，使用提供的工具，用户可以使用自己喜欢的语言创建自己的库。</li>
+              <li><strong>RPC</strong>: 此模块提供对JSON-RPC协议的支持。</li>
+              <li><strong>Rest-API (Insight style)</strong>: 对于喜欢Rest-API的用户，Knuth有自己的Bitpay Insight API实现。它使用我们的C＃API编写，并具有运行Knuth节点的所有优点。值得注意的是，此实现表明Knuth的编程语言API有潜力在其之上创建各种应用程序。</li>
+            </ul>
+            <h3 id="流程与行业标准">流程与行业标准</h3>
+            <p>Knuth具有最好的流程和标准。它用C++编写，C++是一种以其效率为特征的语言，特别是C++17，它是最新的官方C++标准。我们只使用至少有3年成熟历史的最新可用标准。</p>
+            <p>Knuth使用市场上最好的C和C++库，例如Abseil，Boost，GMP，ICU等。</p>
+            <p>关于工具链，Knuth使用C++社区中最有价值的工具：GCC，Clang，MSVC，CMake，Conan，clang-tidy，clang-format。</p>
+            <p>Knuth还使用以下持续集成服务，以确保在多个操作系统中的最高一致性程度：Travis-CI，Appveyor，Cirrus-CI。在持续集成脚本中，Knuth使用以下工具：整洁的clang格式，消毒剂和配置文件引导的优化。</p>
+            <h3 id="多种货币">多种货币</h3>
+            <p>Knuth从创立之初（以及Bitprim）开始，其开发人员就以在程序和协议实验中强大的好奇心而著称。这就是为什么Knuth尽管专注于比特币现金，但也支持比特币（BTC）和莱特币（LTC）。</p>
+            <p>随着时间的流逝，这被证明具有重要意义。一方面，它显示了Knuth的灵活性，即在我们的代码库中添加新货币非常快速。另一方面，发现通过修改代码以支持另一种货币，自然而然地创建了边界案例。这反过来又有助于修复与比特币现金（BCH）代码有关的未报告的潜在错误。</p>
+            <p>因此，Knuth现在支持三种货币，当使用单节点软件而不是几种时，这对于交易所和多货币钱包来说是一种有趣的体验。</p>
+            <h1 id="4-开发计划和提案">4. 开发计划和提案</h1>
+            <p>Knuth深知比特币现金的主要目标是在全球电子货币。因此，我们坚信要添加到代码中的每个特性（无论是什么）都必须为实现该目标而努力。</p>
+            <p>Knuth认为要避免任何可能使比特币现金变得更复杂的变化；此外，任何协议更改都必须面向：</p>
+            <ol>
+              <li>修复已确认的安全漏洞。</li>
+              <li>提高日常的比特币现金用户体验。</li>
+              <li>使开发人员的任务更加轻松。</li>
+            </ol>
+            <p>如果有一点疑问，该功能必须经过较长的成熟和积压分析，并向比特币现金社区公开以获取适当的反馈。简单来说，数字货币是首要目标。</p>
+            <p>在Knuth，我们认为比特币现金客户端要成功，必须经历几个重要阶段。首先，它需要在不挖矿的情况下作为完整节点运行，证明该节点可以执行初始块下载（IBD），赶上最新状态并遵循正确的共识规则和正确的链，这意味着该节点不会无意间引入涉及共识规则的更改，从而导致主链分叉。</p>
+            <p>其次，客户端需要能够创建新块，该新块将由网络通过挖矿进行验证。</p>
+            <p>第三，对于协议的实现，改进和创新，必须在社区达成共识，从而帮助社区发展。</p>
+            <p>对此，Knuth的长期发展如下：</p>
+            <ol>
+              <li><p><strong>实施挖矿业的区块模板一致性测试</strong></p>
+                <p>Knuth在2020年的主要目标之一是向社区展示其作为挖矿节点的潜力。到目前为止，我们进行的各种测试均表明Knuth处于足够成熟的状态。但是，我们希望能确保绝对安全，将任何可能的风险降低到最低限度，向社区交付最安全的客户端。</p>
+                <p>保证安全才能确保与其他主要客户端（Bitcoin Core，BCHN，ABC，BU）保持一致的最佳方法。为此，我们希望能够在Knuth上进行各个客户端的大量测试。</p>
+                <p>为了运行这些测试，我们必须对测试代码本身以及Knuth的代码进行相关的适配任务。我们完全有信心，这项工作将使意外链条分裂的金融风险降到最低，并向其他客户端发出可能不兼容的警报，让社区和用户对节点的正确性给予充分认可。</p>
+                <p>与该项目相关的任务如下:</p>
+                <ul>
+                  <li>研究和分析主要实现的“核心”，“ ABC”，“ BU”和“ BCHN”挖掘测试。提取测试电池与节点之间所有可能形式的互通。这些接口的枚举。预计时间：80小时。</li>
+                  <li>使Knuth适应未执行但运行测试所必需的RPC命令。预计时间：160小时。</li>
+                  <li>使Knuth适应节点上其他检查变量（包含在测试电池中）（例如：检查日志文件）。预计时间：160小时。</li>
+                  <li>将所有相关测试合并到Knuth的当前测试套件中。预计时间：80小时。</li>
+                  <li>确认并调整要在Knuth上运行的测试电池。如果不兼容，请返回第一步。预计时间：80小时。</li>
+                  <li>创建一个高性能API，以便能够运行测试电池来代替JSON-RPC。注意：运行测试会花费大量时间，从而延迟开发和维护，并且会增加CI服务的成本（持续集成）。开发性能更高的API将减少测试时间。预计时间：320小时。</li>
+                  <li>调整测试电池以使用新的测试API。预计时间：160小时。</li>
+                </ul>
+              </li>
+              <li><p><strong>取消25/50链上交易限制</strong></p>
+                <p>比特币现金社区的很大一部分人都希望取消此限制。因此，我们将其作为开发团队的优先事项。但我们也了解到，消除此限制并不只是简单地将一个常数更改为另一个常数，而涉及到将新事务添加到Mempool的算法。</p>
+                <p>BCH ABC使用二次顺序算法。我们认为我们可以开发出更有效的解决方法。此任务目前已完成60％。预计剩余时间：400小时。</p>
+              </li>
+              <li><p><strong>高性能SLP全索引器</strong></p>
+                <p>单一账本协议（SLP）作为第二层协议在比特币现金社区中获得了巨大的发展。我们认为，在节点内拥有高效的完整索引器对于整个社区特别是对于在Knuth平台上构建应用程序或将其用作服务的应用程序非常有用。预计时间：480小时。</p>
+              </li>
+              <li><p><strong>高性能挖矿API</strong></p>
+                <p>Knuth专注于性能。这一点在挖矿领域尤为明显。我们的分析表明，尽管JSON-API协议对于某些流程可能具有重要的用途，但对于挖矿而言却不是那么重要。这是因为它是基于HTTP构建的，HTTP是用于此类活动的非常高级的网络协议。此外，与专为挖矿使用而设计的编码相比，JSON编码被视为通用且效率低下。预计时间：480小时。</p>
+              </li>
+              <li><p><strong>实施Xthinner</strong></p>
+                <p>块传播通常对于网络非常重要，对于矿工和矿池运营商而言尤其如此。 Xthinner能显著增强出块传播。在Knuth中实施它非常有价值。预计时间：320小时。</p>
+              </li>
+              <li><p><strong>实现快速同步</strong></p>
+                <p>我们的目标之一就是打造一个好用且高效的用于挖矿的节点。
+                这就是为什么我们要实现UTXO或其他允许快速节点同步以用于挖矿的技术。预计时间：480小时。</p>
+              </li>
+              <li><p><strong>Double-SHA256算法优化</strong></p>
+                <p>SHA256（double-SHA256）算法在比特币现金节点中具有最大的相关性。我们一直在探索如何充分利用现代处理器中存在的矢量指令来对其进行改进。这将显着增强块验证和merkle-root计算。预计时间：320小时。</p>
+              </li>
+              <li><p><strong>Merkle-root算法优化</strong></p>
+                <p>随着比特币现金规模和采用率的增加，生态系统将看到每个区块更多的交易。值得一提的是，当事务数量增加时，Merkle根算法在内存消耗方面并不完全有效。我们一直在探索如何改善这种行为，还获得了块验证时间和块模板创建方面的改进。预计时间：240小时。</p>
+              </li>
+              <li><p><strong>改进库和语言的APIs</strong></p>
+                <p>维护和持续改进库和API是当务之急。尽管这是一项持续的工作，但我们希望在接下来的6个月中至少可以投入160个小时。预计时间：160小时。</p>
+              </li>
+              <li><p><strong>改进文档</strong></p>
+                <p>文档是正确使用Knuth，提高知名度的基本工具。尽管这也是一项连续的工作，但我们希望在接下来的6个月中至少可以投入80个小时。预计时间：80小时。</p>
+              </li>
+              <li><p><strong>研究项目</strong>:</p>
+                <p>除了专门针对的任务之外，我们还有一系列积压的研究项目，这些研究项目不仅对Knuth有益，而且对整个生态系统也有益。它们涉及与社区和其他客户端的沟通和互动。</p>
+                <ul>
+                  <li><p><strong>Bitcoin Cash正式规范和自动化测试</strong></p>
+                    <p>尽管以人工语言编写的BCH规范很重要，因为它可以促进相关开发人员之间的相互理解，无论是从事节点实施还是其他基础设施服务，我们都认为严格的技术规范对BCH十分重要。</p>
+                    <p>因此，Knuth建议以一种逻辑编程语言编写一个正式的规范，该规范专门为软件正确性的自动数学验证而设计。</p>
+                    <p>最终目标是通过运行计算机程序，证明指定的比特币现金节点能够按预期自动运行。</p>
+                  </li>
+                  <li><p><strong>关于DAA和替代方案的研究</strong></p>
+                    <p>自比特币现金生态系统成立以来，当前的难度调整算法（DAA）就备受关注。有些反馈是正面的，有些是负面的。Knuth希望参与研究过程，以发现该算法对挖矿和矿池运营的实际影响，并在需要时提出改进甚至替代方案。这是一个需要高度透明和社区参与的项目。</p>
+                  </li>
+                  <li><p><strong>研究和实现Graphene</strong></p>
+                    <p>我们对Graphene的初步分析表明，它可以作为一种块传播机制。但是，这项技术在实施之前需要更多的研究和测试。我们提出的改善区块传播的建议将首先实施Xthinner，同时对Graphene进行必要的研究，然后在取得积极成果的情况下继续进行实施。</p>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+            <p>注：此长期计划中的所有估计时间都是基于技术近似值和使用迄今为止可用资源的计算得出的。如果有任何更改，它们将通过Knuth的官方渠道及时发布，并说明理由，以保持与社区的透明度。</p>
+            <h1 id="5-可交付成果和时间表">5. 可交付成果和时间表</h1>
+            <p>上述任务清单在为比特币现金生态系统带来好处的同时，意义深远。</p>
+            <p>在当前市场条件下，以最佳方式进行Flipstarter募资很重要。我们需要展示在Knuth上进行投资的价值及其未来潜力。</p>
+            <p>因此，我们打算发起募资活动，以资助960个工时（约6个月）的工作。这些工作将在2020年完成。从这个角度来看，我们的可交付成果显然不能将上面显示的整个列表作为总计划完整地包含在内。尽管我们有自己的偏好，但我们希望允许潜在的捐助者根据他们的标准选择如何使用其资金。</p>
+            <p>在对Knuth项目做出各自的承诺时，贡献者可以在Flipstarter平台内添加他们最喜欢的拟议任务的序号作为注释。在获得资金的情况下，Knuth将竭尽全力以最高的票数完成任务。如果未提供详细信息，则Knuth将采用显示的顺序开展工作。</p>
+            <p>考虑到这种提议的方法，目前我们很难按固定的时间表列出可交付成果的清单。但是我们认为这种方式可以让社区参与其中，表达他们的意愿。</p>
+            <p><img alt="Tasks" src="http://kth.cash/images/knuth-tasks.png" class="img-fluid"></p>
+            <p>还有一些其他任务和活动由于缺乏足够的相关性，因此我们没有进行独立地说明。这些活动与Flipstarter募资的准备，网站更新，节点错误修复和维护，发布管理，开发，小型设备以及少量支出费用有关。</p>
+            <h1 id="6-预算">6. 预算</h1>
+            <p>迄今为止，任何筹款活动面临的最大挑战是当前复杂的社会经济环境，其中COVID-19病毒的影响正在肆虐。与比特币现金生态系统相关的项目在当前现状下也面临挑战。</p>
+            <p>尽管这两个因素不会使我们士气低落（我们确定我们正在帮助建立一个更好的社会），但必须将它们考虑在内。尤其是在介绍我们正在执行的财务预算时。</p>
+            <p>我们很清楚此类项目的成本。我们了解雇佣高级软件开发人员，开展业务和推动组织前进的成本。我们也很清楚比特币现金正在经历的情况，也不愿意施加额外的负担。但是，我们确实希望与社区合作，展示我们的工作和解决方案的潜力。</p>
+            <p>由于所有这些原因，我们决定在可交付成果和合理的财务资源方面进行有限的宣传。我们要求的960个工时的预算是100,000美元（在撰写本文时为460 BCH）。</p>
+            <p>这是Knuth与比特币现金生态系统合作的方式。我们能够为网络提供价值，我们希望能不断发展壮大。</p>
+            <h1 id="7-备用计划">7. 备用计划</h1>
+            <p>如果我们的募款无法获得所要求的资金，我们计划提供其他方式来从潜在捐助者那里收取资金。这些消息将很快通过官方渠道进行告知。</p>
+            <p>关于Knuth的技术开发，如果活动失败，我们的团队将进入维护模式，并会尽力保持节点的更新，按照现有的共识规则进行操作。任何新的开发/研究以及将其付诸实践所需的时间将在上下文中进行详细分析。</p>
+            <p>无论哪种方式，Knuth都是开源企业。我们期待与他人合作将提出的计划付诸实践。</p>
+            <p>除此之外，Knuth还处于新收入流的评估阶段，该收入流不仅仅取决于筹款，还取决于为比特币现金生态系统提供特定服务。有关更多详细信息，请参见收入流部分。</p>
+            <p>发起筹款活动需要考虑到短期内比特币现金的波动性。如果Flipstarter活动成功结束，我们希望将筹集的资金保留为BCH，并能够在不涉及交易所的情况下直接使用它们。当然，这存在挑战，可能会造成亏损。</p>
+            <p>一种可能的解决方案是将获得资金的50％保留在BCH中，其余50％保留在某些稳定的代币中，例如USDH。与该主题相关的任何问题都将得到及时处理，并得到社区的充分反馈。</p>
+            <p>重要的是，在2020年5月15日的升级中出现任何情况，Knuth都将遵循最可靠的链。</p>
+            <h1 id="8-政策，流程和文化">8. 政策，流程和文化</h1>
+            <h3 id="沟通渠道">沟通渠道</h3>
+            <p>Knuth是一个开源项目，它致力于为比特币现金生态系统增值，同时也与现实紧密结合。因此，我们希望与用户保持紧密联系。</p>
+            <p>很快，我们将更新并运行我们的网站。我们在GitHub上也有资源，该资源对任何愿意参与和协作的人开放。我们不仅鼓励社区成员这样做，也鼓励新人这样做。我们相信我们的优势在于多样性，并在相互尊重与合作的准则下共享知识。</p>
+            <p>我们通过官网和read.cash帐户进行财务或技术方面的正式沟通和定期报告。我们还使用Telegram，Slack和电子邮件。如有必要，请随时与我们联系。如果您对运行Knuth感兴趣，使用它构建一些有趣的东西或者只是尝试一下，请给我们留言，我们将尽最大努力为你提供帮助。</p>
+            <p>网站: <a href="http://kth.cash/">kth.cash</a>
+              Github: <a href="https://github.com/k-nuth/kth">github.com/k-nuth/kth</a>
+              邮箱: <a href="mailto:info@kth.cash">info@kth.cash</a>
+              电报: <a href="https://t.me/knuth_cash">t.me/knuth_cash</a>
+              Read.cash:  <a href="https://read.cash/@kth">read.cash/@kth</a>
+              Slack: <a href="https://k-nuth.slack.com/">k-nuth.slack.com</a>
+              推特: <a href="https://twitter.com/KnuthNode">@KnuthNode</a></p>
+              <h3 id="用户关系">用户关系</h3>
+              <p>我们希望与用户，其他节点以及整个社区保持良好的沟通。在协作和共同创造的前提下，为持久的专业关系奠定基础。</p>
+              <p>我们希望生态系统中的新开发人员能随时联系到我们。我们希望与他们一起成长，一起学习和寻找解决方案。Knuth在设计时就考虑到了后来者。</p>
+              <h3 id="关键伙伴关系">关键伙伴关系</h3>
+              <p>节点之间的协作对于比特币现金生态系统的利益至关重要。Knuth始终牢记这一点。对我们来说，良性竞争是有益的，并且从各个角度来看，都可以激发灵感。这就是自由市场。</p>
+              <p>基于协作和健康竞争的原则，我们希望向其他节点学习并分享经验，无论是技术策略还是商业策略。为了提高竞争力，必须最大化用户体验，在不牺牲可靠性的情况下保持不断的创新，了解我们的现状并明确前进的方向。</p>
+              <p>这就是我们的承诺，也是比特币现金精神所认同的。</p>
+              <p><em>*注意：Knuth是负责实现潜在安全问题公开披露的一组节点实现的一部分。</em></p>
+              <h3 id="时机，政治和利益">时机，政治和利益</h3>
+              <p>将比特币现金发挥到最大潜力的挑战就在这里——没有太多时间。Knuth将比特币现金视为一种产品。作为产品，它需要用户，而用户只会获得更好的用户体验。在Knuth内部，我们对这方面以及如何简化该方向的方法非常感兴趣。</p>
+              <p>未来几年，比特币现金至少需要再增长一百倍的用户。如果我们无法实现这一目标，我们将永远看不到比特币的真实愿景。这与技术无关，而关乎商业。法定金融系统已经知道比特币现金的存在。我们明确提出了我们的目标。但是，从战略角度来看，我们正在遭遇失败。</p>
+              <p>一旦一项策略被宣布后，将没有太多时间来执行。没有时间去思考和等待。你必须尽快行动，以防任何潜在的对手（法定金融系统）抢占先机。等到目标达成时，已经有同一个对手在等着我们。这是我们参与的游戏。如果继续这样下去，我们将不会获胜。不管我们喜欢与否，它都是一种政治和利益置于其核心的游戏。</p>
+              <p>政治因为涉及到人，所以经济是社会，其媒介是网络。在有人的地方有政治。利息，因为它涉及金钱-我们的产品就是金钱。哪里有钱，哪里就有利息。政治和利益是游戏的一部分。消除政治是不可能的，因为如果这样做，我们将需要消除人。同样，消除利息也是不可能的，因为如果这样做，我们将失去我们想要建立的货币体系。因此，我们需要理解比特币现金是围绕人和金钱而建立的，涉及政治和利益。如果比特币现金生态系统没有足够快地意识到这一点，它将永远无法实现其目标。</p>
+              <p>Knuth有一个明确的方向，吸引了更多的人和金钱进入比特币现金生态系统。如果我们成功，我们期望更多的政治和更多的兴趣。无疑这具有挑战性，但是在全球范围内创建我们想要的系统是必需的。</p>
+              <h1 id="9-问责制">9. 问责制</h1>
+              <p>Knuth重视透明性，并打算完全遵守该标准。Knuth将发布每月进度报告，详细介绍操作的相关方面。</p>
+              <p>这些报告将通过上述官方渠道提供。它们将包括一般指标，任务进度，提供的可交付成果以及与社区捐赠的资金相关的财务报表。这些方面中的每一个都将包括其相应的验证表单，例如来自Github的技术方面（软件开发）的提交，以及财务方面的地址/钱包/交易。</p>
+              <p>比特币现金社区将有权使用此材料，我们鼓励任何感兴趣的人以此为基础将来解决其他问题。我们会实行问责制，重视透明性。</p>
+              <h1 id="10-资金和收入流">10. 资金和收入流</h1>
+              <p>在Knuth，我们对自愿主义和自发制定的举措给予最高的尊重。我们知道它们在开源社区中非常重要。在我们接受帮助的同时，我们很清楚我们需要更多的资源保持开发。我们正在与时间赛跑，我们的对手是强大的法定金融体系。</p>
+              <p>要想不被淘汰，我们需要不可忽略的现金流。同时，我们无意成为我们要帮助的生态系统的负担，这将使我们成为寄生虫，这不符合Knuth的观念。</p>
+              <p>另一方面，我们要不惜一切代价规避会抹黑我们形象的举措，或者如何获得资金的阴谋论。我们承诺募资过程透明。我们打算维持有关我们业务计划的开放政策，并与生态系统中的公司保持信息一致。</p>
+              <p>我们的计划可以分为两个方面：资金流和收入流。</p>
+              <h3 id="资金流">资金流</h3>
+              <p>首先，我们将公共筹款作为获取资金以开展业务的主要来源。 Knuth参加了2020年4月的Flipstarter募资活动。我们认为这是比特币现金筹款发展的重要一步。</p>
+              <p>我们很乐意整合Flipstarter技术以进行活动募资。但是目前，该目标超出了我们的预算。</p>
+              <p>在不损害这一点的前提下，Knuth还通过其网站（kth.cash）按照要求/功能提供了直接的资助形式，其中每个项目都包含详细的信息以及开始和完成任务所需的最少资金。</p>
+              <p>此外，我们正在考虑成立一个软件财团，从根本上保证去中心化。该财团欢迎希望实现以下目标的公司，大学和研究机构：</p>
+              <ul>
+                <li>推进节点实现最先进的技术；</li>
+                <li>致力于比特币现金技术集成的研究；</li>
+                <li>支持对学生进行比特币现金相关的技术培训。</li>
+              </ul>
+              <p>参加该财团将收取会员费，以换取以下服务：</p>
+              <ul>
+                <li>通过财团报告和/或软件及早获取研究成果；</li>
+                <li>在共同关心的主题上进行合作；</li>
+                <li>财团委员会的参与权和投票权。</li>
+              </ul>
+              <p>这个想法仍在进一步分析之中。任何相关更新将通过官方渠道及时传达。</p>
+              <h3 id="收入流">收入流</h3>
+              <p>在第二个例子中，Knuth想要实现商用。与比特币现金相关的创新企业将我们带入新领域的同时，也有助于实现全球电子货币的愿景。</p>
+              <p>我们希望我们的共同目标能够将大家聚集在一起，打造高质量的比特币现金产品和服务。这将带来收入流，更好的建设比特币现金生态。</p>
+              <p>这些商业计划将及时被通知，不会以任何方式干扰我们的开源理念。我们的旗舰产品Knuth将始终保持开源。</p>
+              <p>我们的重点是性能，而不仅是提供的产品和服务。我们也重视运营方式。我们的社会政治原则和运作方法使我们能有效防止官僚注意和低效。我们力争将流程分解为简单的单元，易于理解的流程和富有成效的输出。</p>
+              <h1 id="11-团队">11. 团队</h1>
+              <p>Knuth看似一个新的客户端，实则不然。Knuth从Bitprim节点演进而来，Bitprim又从Libbitcoin而来。Libbitcoin于2011年创建，是比特币协议的第二个完整客户端。尽管Knuth与其前身存在很大的差异，但前者充分继承了它们的代码优势。</p>
+              <p>我们的团队成员主要在软件开发和商业上具有丰富的经验。迄今为止，团队脚踏实地，追求实用性。在不影响代码稳定性的前提下提高速度。</p>
+              <p>有关我们团队的更多信息，请访问我们的网站<a href="http://kth.cash/team">kth.cash/team</a> 。</p>
+              <hr>
+              <h1 id="文件修改">文件修改</h1>
+              <p>版本: 0.7</p>
+              <p>修改日期: 2020年4月5号</p>
+              <h3 id="作者">作者:</h3>
+              <ul>
+                <li>Leandro Di Marco, <a href="mailto:leandro@kth.cash">leandro@kth.cash</a></li>
+                <li>Fernando Pelliccioni, <a href="mailto:fernando@kth.cash">fernando@kth.cash</a></li>
+              </ul>
+            </section>
+          </article>
+
+          <!-- Campaign sidebar -->
+          <aside class="col s12 m12 l4">
+            <section>
+              <h3 style="float: left;">
+                <span class="valign-wrapper" style="float: left;">
+                  <i class="icon-face"></i>
+                  <b id="campaignRecipientCount">1</b>
+                  <span data-string="recipientsLabel">受益人</span>
+                </span>
+              </h3>
+              <hr>
+              <ul id="recipientList" class="row" style="margin-bottom: 3rem;"><li class="col s6 m6 l12">
+                <a href="https://kth.cash/">
+                  <img src="img/knuth-logo.png" alt="Knuth">
+                  <span>
+                    <b>Knuth</b>
+                    <i>460 BCH</i>
+                  </span>
+                </a>
+              </li></ul>
+            </section>
+
+            <section>
+              <h3 style="float: left;">
+                <span class="valign-wrapper" style="float: left;">
+                  <i class="icon-favorite_border"></i>
+                  <b id="campaignContributorCount">12</b>
+                  <span data-string="contributorsLabel">捐款人</span>
+                </span>
+              </h3>
+              <hr>
+              <ul id="contributionList"><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -12.44s; background-position: 0px 1.95rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">47%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Marc De Mesel</b>
+                    <small class="contributionAmount">217.45 BCH</small>
+                  </span>
+                  <q class="contributionComment">Why I Believe in Bitcoin Cash: https://www.youtube.com/watch?v=TY-om1CSPB4</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -0.3s; background-position: 0px 2.45rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">33%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Marc De Mesel</b>
+                    <small class="contributionAmount">151.16 BCH</small>
+                  </span>
+                  <q class="contributionComment">Thank you Knuth for keeping Bitcoin Cash decentralized and adding value</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -11.99s; background-position: 0px 3.3rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">9%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Marc De Mesel</b>
+                    <small class="contributionAmount">39.38 BCH</small>
+                  </span>
+                  <q class="contributionComment">Want to see you succeed</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -11.99s; background-position: 0px 3.37rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">7%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">molecular</b>
+                    <small class="contributionAmount">30.28 BCH</small>
+                  </span>
+                  <q class="contributionComment">great architecture! very promising!</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -10.22s; background-position: 0px 3.48rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">3%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">btcfork</b>
+                    <small class="contributionAmount">15.42 BCH</small>
+                  </span>
+                  <q class="contributionComment">Good ideas, solid professionals, passion for Bitcoin Cash. All the necessary ingredients.</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -5.04s; background-position: 0px 3.59rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Henry Cashlitt</b>
+                    <small class="contributionAmount">1.44 BCH</small>
+                  </span>
+                  <q class="contributionComment">Bitcoin Cash (BCH): 💰⚡️ Upgraded money for the world</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -3.99s; background-position: 0px 3.59rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Shadow Of Harbringer</b>
+                    <small class="contributionAmount">1.34 BCH</small>
+                  </span>
+                  <q class="contributionComment">Let's support The Bitcoin Cash ecosystem!</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -10.87s; background-position: 0px 3.59rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">amora</b>
+                    <small class="contributionAmount">0.81 BCH</small>
+                  </span>
+                  <q class="contributionComment">BCH for the win!</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -12.85s; background-position: 0px 3.59rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">emergent_reasons#100🌵</b>
+                    <small class="contributionAmount">0.78 BCH</small>
+                  </span>
+                  <q class="contributionComment">FYI Large pledges will allow more people to participate by reducing the minimum.</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -5.84s; background-position: 0px 3.59rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Omar</b>
+                    <small class="contributionAmount">0.76 BCH</small>
+                  </span>
+                  <q class="contributionComment">Bitcoin Cash (BCH): best money for the world! Thank you all BCH developers for your hard work.</q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -9.71s; background-position: 0px 3.59rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Sur_Clyde_Hoffenfelder</b>
+                    <small class="contributionAmount">0.69 BCH</small>
+                  </span>
+                  <q class="contributionComment" style="display: none;"></q>
+                </span>
+              </li><li>
+                <div>
+                  <div class="contributionWaves" style="animation-delay: -10.84s; background-position: 0px 3.6rem;"></div>
+                  <div class="contributionDisplay"></div>
+                  <span class="contributionPercent">0%</span>
+                </div>
+                <span>
+                  <span>
+                    <b class="contributionAlias">Why cryptocurrencies?</b>
+                    <small class="contributionAmount">0.50 BCH</small>
+                  </span>
+                  <q class="contributionComment">https://whycryptocurrencies.com/</q>
+                </span>
+              </li></ul>
+            </section>
+          </aside>
+        </main>
+
+      </div>
+    </div>
+
+    <!-- Site footer -->
+    <footer class="page-footer green">
+      <div class="container">
+        <div class="row">
+          <div class="col l5 s12">
+            <h5 class="white-text" data-string="footerLabel">关于我们</h5>
+            <p class="grey-text text-lighten-4" data-string="footerText">我们是来自社区的志愿者。我们认为有必要建立起高效且可持续的自愿捐赠机制。Flipstarter创建了一种无需托管的、无需高信任的募资方式。</p>
+          </div>
+          <div class="col l2 m4 s4 offset-l1">
+            <h5 class="white-text" data-string="socialLabel">社交平台</h5>
+            <ul>
+              <li>
+                <a class="white-text valign-wrapper" href="https://twitter.com/flipstartercash">
+                  <i class="icon-chat"></i>
+                  &nbsp;
+                  <span data-string="twitter">推特</span>
+                </a>
+              </li>
+              <li>
+                <a class="white-text valign-wrapper" href="https://read.cash/@flipstarter">
+                  <i class="icon-info"></i>
+                  &nbsp;
+                  <span data-string="read.cash">Read.cash</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col l2 m4 s4">
+            <h5 class="white-text" data-string="contactLabel">联系我们</h5>
+            <ul>
+              <li>
+                <a class="white-text valign-wrapper" href="mailto:info@flipstarter.cash">
+                  <i class="icon-email"></i>
+                  &nbsp;
+                  <span data-string="email">邮箱</span>
+                </a>
+              </li>
+              <li>
+                <a class="white-text valign-wrapper" href="mailto:security@flipstarter.cash">
+                  <i class="icon-security"></i>
+                  &nbsp;
+                  <span data-string="security">安全</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col l2 m4 s4">
+            <h5 class="white-text" data-string="codeLabel">代码</h5>
+            <ul>
+              <li>
+                <a class="white-text valign-wrapper" href="https://gitlab.com/groups/flipstarter/-/issues">
+                  <i class="icon-report_problem"></i>
+                  &nbsp;
+                  <span data-string="issues">问题</span>
+                </a>
+              </li>
+              <li>
+                <a class="white-text valign-wrapper" href="https://gitlab.com/flipstarter">
+                  <i class="icon-code"></i>
+                  &nbsp;
+                  <span data-string="source">源代码</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container center" style="opacity: 0.65;">
+          <span data-string="copyright">版权所有（2020），供公共使用</span>
+          <a href="https://gitlab.com/emergent-reasons/funding-traction/blob/master/LICENSE" style="color: inherit; border-bottom: 1px dashed rgba(256, 256, 256, 0.33)" data-string="license">MIT许可。</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="languageSelector" class="fixed-action-btn">
+      <b id="currentLanguage" data-string="changeLanguage">
+        <a href="/">🇬🇧</a>
+        <a href="/zh">🇨🇳</a>
+        <a href="/es">🇪🇸</a>
+      </b>
+    </div>
+
+    <!-- -->
+    <template id="recipientTemplate">
+      <li class="col s6 m6 l12">
+        <a>
+          <img>
+          <span>
+            <b></b>
+            <i></i>
+          </span>
+        </a>
+      </li>
+    </template>
+    <template id="contributionTemplate">
+      <li>
+        <div>
+          <div class="contributionWaves"></div>
+          <div class="contributionDisplay"></div>
+          <span class="contributionPercent"></span>
+        </div>
+        <span>
+          <span>
+            <b class="contributionAlias"></b>
+            <small class="contributionAmount"></small>
+          </span>
+          <q class="contributionComment"></q>
+        </span>
+      </li>
+    </template>
+    <template id="emptyContributionMessage">
+      <li style="display: block; text-align: center; color: rgba(0, 0, 0, 0.5); padding: 2rem;">
+        <i data-string="contributorEmpty1">还没有人捐款。</i>
+        <br>
+        <i data-string="contributorEmpty2">成为第一个捐款人。</i>
+      </li>
+    </template>
+
+    <!-- Load the javascript as the last step to ensure fastest load time. -->
+    <!-- <script src="js/application.js"></script> -->
+
+    <!-- -->
+    <audio src="snd/applause.mp3" id="applause"></audio>
+
+
+  </body>
+  </html>
